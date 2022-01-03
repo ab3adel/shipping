@@ -1,0 +1,330 @@
+* {
+    font-family: 'Roboto';
+}
+.offersMainContainer {
+  
+    display:grid;
+    grid-template-rows:0.49fr 1fr ;
+    background-image: url('../../../images/shippingreqback.svg');
+    
+    .offersUpperPart {
+        display :flex;
+        position: relative;
+        background-color: #00A4DE;
+        text-align: center;
+        flex-direction: column;
+        background-image: url('../../../images/smallship.svg');
+        background-repeat: no-repeat;
+        background-size: 18%;
+        background-position-y: bottom;
+        background-position-x: left;
+        max-height: 100%;
+        width: 100%;
+        clip-path: polygon(0 0 , 135% 0% ,0 100%);
+        color:white;
+        font-size: x-large;
+    }
+    .offersLowerPart {
+        display:grid;
+        grid-template-rows: repeat(3,1fr);
+        grid-template-columns: 0.5fr 1fr;
+        background-image:url("../../../images/deliveryman.svg");
+        background-repeat: no-repeat;
+        background-size: 30%;
+        background-position: left center;
+        .fedexContainer {
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: row-reverse;
+            grid-column: 2/2;
+            margin-bottom: 1rem;
+            .imgContainer {
+                display: flex;
+                justify-content: flex-end;
+                img {
+                    width:70%;
+                }
+               
+            }
+            .offersInfo {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                color:#00A4DE;
+                .line {
+                    display: flex;
+                    justify-content: space-between;
+                    text-align: center;
+                    flex-direction: row-reverse;
+                    margin-bottom: 2rem;
+                    .value {
+                        color:black;
+                        margin-right:2rem;
+                    }
+
+                }
+               
+            }
+            .offersBtn {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                width: 40%;
+                height: 70%;
+                align-items: center;
+                button {
+                    background-color: #00A4DE;
+                    color:white;
+                    font-size: large;
+                    border:none;
+                    box-shadow: 3px 3px 3px grey;
+                }
+            }
+        }
+        .dhlContainer {
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: row-reverse;
+            grid-column: 2/2;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+            .imgContainer {
+                display: flex;
+                justify-content: flex-end;
+                img {
+                    width:70%;
+                }
+               
+            }
+            .offersInfo {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                color:#00A4DE;
+                .line {
+                    display: flex;
+                    justify-content: space-between;
+                    text-align: center;
+                    flex-direction: row-reverse;
+                    margin-bottom: 2rem;
+                    .value {
+                        color:black;
+                        margin-right:2rem;
+                    }
+
+                }
+               
+            }
+            .offersBtn {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                width: 40%;
+                height: 70%;
+                align-items: center;
+                button {
+                    background-color: #00A4DE;
+                    color:white;
+                    font-size: large;
+                    border:none;
+                    box-shadow: 3px 3px 3px grey;
+                }
+            }
+        }
+        .upsContainer {
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: row-reverse;
+            grid-column: 2/2;
+           
+            .imgContainer {
+                display: flex;
+                justify-content: flex-end;
+                img {
+                    width:70%;
+                }
+               
+            }
+            .offersInfo {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                color:#00A4DE;
+                .line {
+                    display: flex;
+                    justify-content: space-between;
+                    text-align: center;
+                    flex-direction: row-reverse;
+                    margin-bottom: 2rem;
+                    .value {
+                        color:black;
+                        margin-right:2rem;
+                    }
+
+                }
+               
+            }
+            .offersBtn {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                width: 40%;
+                height: 70%;
+                align-items: center;
+                button {
+                    background-color: #00A4DE;
+                    color:white;
+                    font-size: large;
+                    border:none;
+                    box-shadow: 3px 3px 3px grey;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+// ################### Offer Details #############################
+.offerDetailsMain {
+    display:grid;
+    grid-template-rows:0.49fr 1fr 0.1fr;
+    
+    .offerDetailsUpperPart {
+        display :flex;
+        position: relative;
+        background-color: #00A4DE;
+        text-align: center;
+        flex-direction: column;
+        background-image: url('../../../images/smallship.svg');
+        background-repeat: no-repeat;
+        background-size: 18%;
+        background-position-y: bottom;
+        background-position-x: left;
+        max-height: 100%;
+        width: 100%;
+        clip-path: polygon(0 0 , 135% 0% ,0 100%);
+        color:white;
+        font-size: x-large;
+    }
+    .offerDetailsLowerPart {
+        grid-row: 2/2;
+        display:grid;
+        grid-template-rows: 1fr 0.5fr 0.3fr 0.1fr;
+        .infoContainer {
+           background-image:url('../../../images/fusi.svg');
+           background-repeat: no-repeat;
+           background-size: cover;
+           background-position: center;
+           align-items: flex-end;
+           flex-direction: row-reverse;
+            grid-row: 1/1;
+            display: flex;
+            justify-content: center;
+            .info {
+                display:flex;
+                flex-direction: column;
+                justify-content: center;
+                height: 80%;
+                margin-right: 2rem;
+                .line {
+                    display: flex;
+                    justify-content: flex-end;
+                    color:#00A4DE;
+                    margin-top: 1rem;
+                    margin-bottom: 1rem;
+                    padding-right: 10px;
+                   .value {
+                       color:black;
+                       margin-right: 2rem;
+                   }
+                }
+                .checkboxInput {
+                    margin-top: 1rem;
+                    display:flex;
+                    justify-content: center;
+                    flex-direction: row-reverse;
+                    margin-top: 1rem;
+                    margin-left: 1rem;
+                    p {
+                        margin:0;
+                    }
+                }
+            }
+        }
+       .radioButton {
+           display:flex;
+           flex-direction: column;
+           align-items: center;
+           grid-row: 2/2;
+           .group {
+               font-size: large;
+               font-weight: bold;
+               margin-top: 1rem;
+               margin-bottom: 1rem;
+           }
+       }
+       .addLink {
+           display:none;
+           grid-row: 3/3;
+           justify-content: center;
+           align-items: center;
+           input{
+               border:1px solid #00A4DE;
+               width:38%;
+               margin-left: 5rem;
+               height: 30%;
+           }
+           button {
+               background-color:#00A4DE ;
+               font-size: x-large;
+               color: white;
+               border: none;
+               border-radius: 5px;
+               box-shadow: 3px 3px 3px grey;
+           }
+
+       }
+     
+    }
+    .saveOrder {
+        grid-row: 3/3;
+        display: flex;
+        justify-content: center;
+        height: fi;
+        button {
+             background-color:#00A4DE ;
+             font-size:x-large;
+             color: white;
+             border: none;
+             border-radius: 5px;
+             box-shadow: 2px 2px 2px grey;
+             height: 80%;
+        }
+    }
+   
+        
+    
+}
+.clock {
+    color:white;
+    margin-left: 5px;
+    text-align: center;
+  img {
+      width:15%;
+  }
+}
+.dialogContent {
+    h5{
+        font-size: large;
+    }
+    .body {
+        text-align: justify;
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: flex-end;
+        height: 40%;
+    }
+}
