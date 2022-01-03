@@ -2,7 +2,7 @@
     grid-row: 1/1;
     display:grid;
     grid-template-columns: 0.3fr 1fr 0.3fr;
-    background-color: #00A4DE;
+  
     color:white;
     .MuiPaper-root {
         background-color: hsl(196, 100%, 44%);
@@ -116,3 +116,19 @@
     }
 }
 
+@media only screen and (max-width:770px) {
+    .homeOneContainer{
+        height: 90vh;
+        .body {
+            background-size: 80%;
+            .textContainer {
+                justify-content: flex-start;
+                .text {
+                    font-size: large;
+                    width:100%
+                }
+            }
+        }
+    }
+   
+}

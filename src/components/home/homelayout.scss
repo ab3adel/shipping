@@ -3,3 +3,9 @@
     display:grid;
     grid-template-rows: repeat(4,1fr);
 }
+
+@media only screen  and (max-width:770px) {
+    .homeMainContainer {
+        grid-template-rows: 80vh 1fr 1fr 1fr;
+    }
+}

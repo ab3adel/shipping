@@ -115,3 +115,44 @@
         }
     }
 }
+@media only screen and (max-width:770px) {
+    .homeTwoContainer {
+        margin-top: 0px;
+        .title {
+            text-align: center;
+        }
+        .body {
+            grid-template-rows: 50% 50%;
+            grid-template-columns: 1fr;
+            .leftCol {
+                width:100%;
+                justify-content: center;
+                grid-row: 1/1;
+                .edg1 {
+                    height:75%;
+                    left:1%
+                }
+                .edg2 {
+                    height:75%;
+                    left:4%
+                }
+                .edg3 {
+                    height:75%;
+                    left:6%
+                }
+                img {
+                    width:90%;
+                    height:75%
+                }
+                .circles {
+                    left:50%;
+                    bottom: 5%;
+                }
+            }
+            .rightCol {
+                grid-row: 2/2;
+                width: 100%;
+            }
+        }
+    }
+}
