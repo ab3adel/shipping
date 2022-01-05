@@ -9,6 +9,12 @@ import AppStore from '../../../images/homepage/appstore.svg'
 import  Hands from '../../../images/homepage/hands.svg'
 import Speed from '../../../images/homepage/speed.svg'
 import Realable from '../../../images/homepage/realability.svg'
+import Web from '../../../images/homepage/web.svg'
+import Email from '../../../images/homepage/email.svg'
+import Phone from '../../../images/homepage/phone.svg'
+import 
+{Copyright,YouTube,Instagram,Twitter,Facebook}
+from '@mui/icons-material'
 export const HomeSectionFour =()=>{
 
 
@@ -48,7 +54,7 @@ export const HomeSectionFour =()=>{
                     </div>
                 </div>
             </div>
-            <div className="footer">
+            <div className="diagram">
               <img src={Speed} id="speed"/>
               <img src={Realable} id ="realable" />
               <img src={Hands} id="hands" />
@@ -68,6 +74,46 @@ export const HomeSectionFour =()=>{
               <div className="hands">
                   الاحترافية
               </div>
+            </div>
+            <div className="preFooter" >
+               
+                <div className="element">
+                    <img id="email" src={Email}/>
+                    <span className="head1">
+                        Email
+                    </span>
+                    <span className="head2">
+                        service@ikoniks.de
+                    </span>
+                </div>
+                <div className="element">
+                    <img id ="phone" src={Phone}/>
+                    <span className="head1">
+                        Phone
+                    </span>
+                    <span className="head2">
+                        + (49) 173-9354932
+                    </span>
+                </div>
+                <div className="element">
+                    <img src={Web}/>
+                    <span className="head1">
+                        Adress
+                    </span>
+                    <span className="head2">
+                        Filderahplatz.35 70567 stuttgart
+                    </span>
+                </div>
+            </div>
+            <div className="footer ">
+                <div className="icons">
+                    <Facebook fontSize='medium'/> 
+                    <Twitter fontSize="medium" />
+                    <YouTube fontSize="medium" />
+                    <Instagram fontSize="medium" />
+
+                </div>
+                <p>Copyright <Copyright fontSize="small" />  2021 Engitech by IkoniksThemes. All Rights Reserved.</p>
             </div>
         </div>
     )

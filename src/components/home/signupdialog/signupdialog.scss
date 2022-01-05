@@ -1,0 +1,115 @@
+.MuiModal-root {
+    .MuiDialog-container{
+        .MuiPaper-root {
+            background-color: #00A4DE;
+            height: 85%;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            .MuiDialogContent-root {
+                .title {
+                    width: 100%;
+                    font-size: xx-large;
+                    color:white;
+                    text-align: center;
+                    margin-bottom: 1rem;
+                }
+                form {
+                    width: 100%;
+                    
+                   
+                    .input {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        align-items: center;
+                        margin-bottom: 1rem;
+                        label {
+                            color: white;
+                            font-size: large;
+                            text-align: center;
+                            margin-bottom: 5px;
+                        }
+                        .MuiOutlinedInput-root {
+
+                            width: 100%;
+                            border: 2px solid white;
+                            border-radius: 5px;
+                            color:white;
+                           
+                        }
+                    }
+                }
+
+            }
+            .MuiDialogActions-root {
+                width: 90%;
+                display:flex;
+                flex-direction: column;
+           
+                .forgetPassword {
+                    font-size: medium;
+                    color:white;
+                    margin-bottom: 5px;
+                }
+                .MuiButton-root {
+                    background-color: white;
+                    border:none;
+                    box-shadow: 3px 3px 3px grey;
+                    font-size: large;
+                    width: 40%;
+                    color:#00A4DE;
+                    margin-bottom: 1rem;
+                    font-weight: bold;
+                }
+                .signup {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    .title {
+                        display:flex;
+                        justify-content: space-between;
+                        width: 100%;
+                        color:white;
+                        align-items: center;
+                        margin-bottom: 5px;
+                      span {
+                          white-space: nowrap;
+                          margin:5px;
+                      }
+                        .line {
+                           
+                            width: 40%;
+                            border: 1px solid white;
+                           
+                        }
+                    }
+                    .MuiButton-root {
+                        background-color: #B669DA;
+                        color:white;
+                        width: 50%;
+                        font-size: x-large;
+                    }
+                }
+            }
+        }
+    }
+}
+.white {
+    color:white;
+    font-size: small;
+}
+@media only screen and (max-width:770px) {
+    .MuiModal-root {
+        .MuiDialog-container{
+            .MuiPaper-root {
+                height: 60%;
+                width: 80%;
+            }
+        }
+    }    
+}

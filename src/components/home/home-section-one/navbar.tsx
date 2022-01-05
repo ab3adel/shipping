@@ -10,10 +10,13 @@ import
     ,IconButton}
 from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
+import {SignUpDialog} from '../signupdialog/signupdialog'
 
 export const Navbar =() =>{
     const [anchorElNav, setAnchorElNav] = useState <Element |null>(null);
     const [anchorElUser, setAnchorElUser] = useState <Element |null>(null);
+    const [open,setOpen] = useState(false)
+
     const handleOpenNavMenu = (event:React.MouseEvent) => {
         setAnchorElNav(event.currentTarget);
       };
@@ -29,6 +32,7 @@ export const Navbar =() =>{
         setAnchorElUser(null);
       };
     return (
+        <>
         <div className="navbar">
             <AppBar position="fixed"
                    color="inherit">
@@ -58,7 +62,7 @@ export const Navbar =() =>{
                              sx={{display:{xs:'block',md:'none'}}}
                              >
                                            <div className="register">
-                                                <button>
+                                                <button  onClick={()=>setOpen(true)}>
                                                     تسجيل الدخول
                                                 </button>
                                             </div>
@@ -91,7 +95,7 @@ export const Navbar =() =>{
                                  ,flexDirection:'row-reverse'}}>
                                      
                                            <div className="register">
-                                                <button>
+                                                <button onClick={()=>setOpen(true)}>
                                                     تسجيل الدخول
                                                 </button>
                                             </div>
@@ -115,5 +119,9 @@ export const Navbar =() =>{
             </AppBar>
            
         </div>
+         <SignUpDialog 
+         open={open} 
+         setOpen={setOpen}/>
+         </>
     )
 }
