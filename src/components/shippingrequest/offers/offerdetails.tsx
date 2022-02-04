@@ -5,7 +5,13 @@ import Dhl from '../../../images/dhl.svg'
 import Ups from '../../../images/ups.svg'
 import Clock from '../../../images/clock.svg'
 import {CheckBox,Share} from '@mui/icons-material'
-import {Dialog,DialogActions,DialogContent} from '@mui/material'
+import 
+    {   Dialog
+        ,DialogActions
+        ,DialogContent
+        ,Checkbox
+    } 
+from '@mui/material'
 interface itestData {src:string,id:number,name:string,cost:number}
 export const OfferDetails =()=>{
     let TestData = [{src:Fedex,id:1,name:"Fedex",cost:25}
@@ -14,6 +20,7 @@ export const OfferDetails =()=>{
     let {id }= useParams()
    let [offer,setOffer]=useState <itestData>({src:'',id:0,name:'',cost:0})
    const [open,setOpen] = useState (false)
+   const  [billChecked,setBillChecked]=useState(false)
     const addLink = (str:string)=>{
         let div = document.querySelector(".addLink") as HTMLDivElement
         if (str === "show"){
@@ -27,6 +34,7 @@ export const OfferDetails =()=>{
         div.style.display="none";
       }
     }
+ 
     useEffect(()=>{
         if (id) {
             let idNum = Number(id.slice(1))
@@ -52,7 +60,9 @@ export const OfferDetails =()=>{
                          </div>
                          <div className="checkboxInput">
                                
-                                <input name="bill" type="checkbox" value='x'/>
+                                <Checkbox checked={billChecked}
+                                       onClick={()=>setBillChecked(!billChecked)}
+                                     name="bill" id="bill" />
                                 <label htmlFor="bill">اضافة تكلفة الى الفاتورة النهائية</label>
                                
                          </div>
@@ -84,13 +94,8 @@ export const OfferDetails =()=>{
                       </button>
                 </div>
         {open && (
-            <Dialog  PaperProps={{
-                style:{
-                backgroundColor:'#00A4DE' ,
-                width:"40%",
-                height:"60%"
-                 }
-            }}
+            <Dialog  
+               className="notsDialog"
              open={open} onClose={()=>setOpen(false)}>
                 <DialogContent className="dialogContent"
                   sx={{

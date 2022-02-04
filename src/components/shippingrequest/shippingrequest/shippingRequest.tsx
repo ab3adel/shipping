@@ -3,7 +3,7 @@ import './shippingRequest.scss'
 import {useState} from 'react'
 import {MyShippingRequestForm} from './form'
 import {Route,Navigate,Routes,useNavigate} from 'react-router-dom'
-
+import {Button} from '@mui/material'
 export const ShippingRequest =() =>{
 let navigate = useNavigate()
 const [date,setDate]=useState()
@@ -23,10 +23,12 @@ const [date,setDate]=useState()
                </div>
             
         </div>
-        <button className="askOfferBtn"
-          onClick={()=>navigate('/offers')}
-        >   طلب عرض للشحنة
-        </button> 
+        <div className="askOfferBtn" >
+            <Button 
+              onClick={()=>navigate('/shippingrequest/offers')}
+            >   طلب عرض للشحنة
+            </Button> 
+        </div>
      </div>    
    
         

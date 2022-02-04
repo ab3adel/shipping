@@ -15,7 +15,7 @@
         flex-direction: column;
         background-image: url('../../../images/smallship.svg');
         background-repeat: no-repeat;
-        background-size: 18%;
+        background-size: 15%;
         background-position-y: bottom;
         background-position-x: left;
         max-height: 100%;
@@ -183,8 +183,86 @@
     }
 }
 
+@media only screen and (max-width:500px){
+    .offersMainContainer {
+        //margin-top: 3rem;
+        grid-template-rows: 100px 0.7fr ;
+        .offersUpperPart {
+            clip-path: polygon(0 0, 165% 0%, 0 100%);
+            font-size: large;
+            justify-content: flex-start;
+            background-size: 30%;
+        }
+        .offersLowerPart {
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 1fr 1fr 0.6fr;
+            background-position: center ;
+            background-position-y: 93%;
+            background-size: 50%;
+            .fedexContainer {
+                flex-direction: column;
+                grid-column: 1/3;
+                .imgContainer {
+                    justify-content: center;
+                    img {
+                        width: 50%;
+                    }
+                }
+                .offersInfo {
+                    align-items: center;
+                    
+                }
+                .offersBtn {
+                    width: 100%;
+                }
+            }
+            .dhlContainer {
+                flex-direction: column;
+                grid-column: 1/3;
+                .imgContainer {
+                    justify-content: center;
+                    img {
+                        width: 50%;
+                    }
+                }
+                .offersInfo {
+                    align-items: center;
+                    
+                }
+                .offersBtn {
+                    width: 100%;
+                }
 
-
+            }
+            .upsContainer {
+                flex-direction: column;
+                grid-column: 1/3;
+                .imgContainer {
+                    justify-content: center;
+                    img {
+                        width: 50%;
+                    }
+                }
+                .offersInfo {
+                    align-items: center;
+                    
+                }
+                .offersBtn {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+@media  only screen  and (min-width:501px) and (max-width:1024px){
+    .offersMainContainer {
+        grid-template-rows: 0.4fr 1fr;
+        .offersUpperPart {
+            justify-content: center;
+            clip-path: polygon(0 0, 155% 0%, 0 100%);
+        }
+    }
+}
 
 
 // ################### Offer Details #############################
@@ -200,7 +278,7 @@
         flex-direction: column;
         background-image: url('../../../images/smallship.svg');
         background-repeat: no-repeat;
-        background-size: 18%;
+        background-size: 15%;
         background-position-y: bottom;
         background-position-x: left;
         max-height: 100%;
@@ -248,6 +326,7 @@
                     flex-direction: row-reverse;
                     margin-top: 1rem;
                     margin-left: 1rem;
+                    align-items: center;
                     p {
                         margin:0;
                     }
@@ -326,5 +405,66 @@
         flex-direction: row-reverse;
         align-items: flex-end;
         height: 40%;
+    }
+}
+@media only screen  and (max-width:500px) {
+    .offerDetailsMain {
+       // margin-top: 3rem;
+        grid-template-rows: 100px 1fr 0.1fr;
+        .offerDetailsUpperPart {
+            clip-path: polygon(0 0, 165% 0%, 0 100%);
+            font-size: large;
+            justify-content: center;
+            background-size: 30%;
+        }
+        .offerDetailsLowerPart {
+           .infoContainer {
+               flex-direction: column;
+               img {
+                   align-self: center;
+               }
+           }
+           .addLink {
+               justify-content: space-around;
+               input {
+                   margin-left: 0px;
+                   width: 40%;
+               }
+           }
+        }
+    }
+    .notsDialog {
+        .MuiDialog-container {
+            .MuiPaper-root {
+                width:100%;
+                height: 50%;
+                .MuiDialogContent-root {
+                    .body {
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                }
+            }
+        }
+      
+    }
+}
+@media  only screen  and (min-width:501px) and (max-width:1024px){
+    .offerDetailsMain {
+        .offerDetailsUpperPart {
+            justify-content: center;
+        }
+    }
+}
+@media  screen and (min-width:1024px) and (max-width:1144px) {  
+    .notsDialog {
+        .MuiDialog-container {
+            height: 75%;
+            .MuiPaper-root {
+                height: 100%;
+               
+            }
+        }
     }
 }

@@ -12,9 +12,7 @@ import Realable from '../../../images/homepage/realability.svg'
 import Web from '../../../images/homepage/web.svg'
 import Email from '../../../images/homepage/email.svg'
 import Phone from '../../../images/homepage/phone.svg'
-import 
-{Copyright,YouTube,Instagram,Twitter,Facebook}
-from '@mui/icons-material'
+
 export const HomeSectionFour =()=>{
 
 
@@ -24,8 +22,10 @@ export const HomeSectionFour =()=>{
             <img src={Wave } />
             <div className="body">
                 <div className="leftCol">
-                    <img className="mobile1" src={Mobile1} />
-                    <img className='mobile2' src={Mobile2} />
+                    <div className="phonesContainer">
+                        <img className="mobile1" src={Mobile1} />
+                        <img className='mobile2' src={Mobile2} />
+                    </div>
                 </div>
                 <div className="rightCol">
                     <div className="title">
@@ -96,7 +96,7 @@ export const HomeSectionFour =()=>{
                     </span>
                 </div>
                 <div className="element">
-                    <img src={Web}/>
+                    <img className="earthImage" src={Web}/>
                     <span className="head1">
                         Adress
                     </span>
@@ -105,16 +105,7 @@ export const HomeSectionFour =()=>{
                     </span>
                 </div>
             </div>
-            <div className="footer ">
-                <div className="icons">
-                    <Facebook fontSize='medium'/> 
-                    <Twitter fontSize="medium" />
-                    <YouTube fontSize="medium" />
-                    <Instagram fontSize="medium" />
-
-                </div>
-                <p>Copyright <Copyright fontSize="small" />  2021 Engitech by IkoniksThemes. All Rights Reserved.</p>
-            </div>
+           
         </div>
     )
 }

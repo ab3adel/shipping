@@ -9,7 +9,8 @@ import
     TextField,
     Typography,
     Stack,
-    InputAdornment
+    InputAdornment,
+    Checkbox
 } 
 from '@mui/material'
 
@@ -19,7 +20,8 @@ from '@mui/lab'
 import 
 {
     ArrowDownward,
-    Check
+    Check,
+    ArrowUpward
 } 
 from '@mui/icons-material'
 import LeftArrow  from '../../../images/leftarrow.svg'
@@ -28,91 +30,131 @@ import Food from '../../../images/food.svg'
 import Case from '../../../images/case.svg'
 import Cloth from '../../../images/cloth.svg'
 import Tyre from '../../../images/tyre.svg'
-import  {useState} from 'react'
+import  {useState,useEffect} from 'react'
+interface Ichoose {
+    [key:string]:boolean 
+}
+
 export const MyShippingRequestForm =()=>{
 const [senderAddress ,setSenderAddress] =useState("")
+const [checkBox,setCheckBox]= useState<Ichoose>({food:false,case:false,cloth:false,tyre:false})
+const [screenWidth,setScreenWidth]= useState(0)
+ useEffect (()=>{
+  setScreenWidth(window.innerWidth)
+ },[])
 const openOptions=(e :React.MouseEvent) =>{
     e.preventDefault();
     let panel = document.querySelector('.collapse') as HTMLDivElement
     let left = document.querySelector('#leftArrow') as HTMLImageElement
     let right = document.querySelector('#rightArrow') as HTMLImageElement
-    left.style.visibility='visible';
-    right.style.visibility='visible';
+    let arrowDown = document.querySelector('#arrowDown') as HTMLImageElement
+    let arrowUp = document.querySelector('#arrowUp') as HTMLImageElement
+ 
     if ( panel.style.opacity === '1')
     {
        
         panel.style.maxHeight=`0vh`;
         panel.style.opacity='0';
+        left.style.opacity='0';
+        right.style.opacity='0';
+        arrowDown.style.display="block";
+        arrowUp.style.display="none";
     }
     else {
         panel.style.opacity='1';
-        panel.style.maxHeight=`30vh`;
+        if (screenWidth> 770) {
+            panel.style.maxHeight=`30vh`;
+        }
+        else {
+            panel.style.maxHeight=`10vh`;
+        }
+       
+        left.style.opacity='1';
+        right.style.opacity='1';
+        arrowDown.style.display="none";
+        arrowUp.style.display="block";
     }
   
 }
 const scroll=(str:string)=>{
-    console.log('left')
+
     let div = document.querySelector('.collapse') as HTMLDivElement
     if (str==="left") {
-        div.scrollLeft=div.scrollLeft + 10
+        div.scrollLeft=div.scrollLeft + 50
     }
     else {
-        div.scrollLeft= div.scrollLeft-10
+        div.scrollLeft= div.scrollLeft-50
     }
 }
 const checkOption =(str:string)=>{
-    let checkBox = document.querySelector(`#${str}`) as HTMLInputElement
-    checkBox.checked= !checkBox.checked;
+    console.log(str)
+    let obj = {...checkBox}
+    Object.keys(obj).map(ele=>{
+        if (ele=== str) {
+            obj[ele]=!checkBox[ele]
+        }
+    })
+    setCheckBox(obj)
+   
+   
 }
 return (
-    <div>
+
             <form className="srForm">
                             
                                     <div className='optionsContainer'  >
                                         <FormLabel htmlFor='select' > نوع الشحنة</FormLabel>
                                         <button onClick={(e)=>openOptions(e)} > 
-                                            <ArrowDownward  
-                                              style={{color:'white',fontSize:'0.8rem'}} /> اختر
+                                            <ArrowDownward  id ="arrowDown"
+                                              style={{color:'inherit',fontSize:'0.8rem'}} />
+                                            <ArrowUpward  id ="arrowUp"
+                                              style={{color:'inherit',fontSize:'0.8rem',display:'none'}} /> اختر
                                         </button>
                                         <div className='collapse'>
                                             <div className="collapseContentContainer">
                                                     <div className='optionContainer'>
                                                         <img className="optionImage" 
-                                                          
+                                                   
                                                           onClick={()=>checkOption('food')}
                                                          src={Food} />
-                                                        <div>
-                                                            <input id="food" type={'checkbox'} name='food'/>
+                                                        <div className="mobileView">
+                                                            
+                                                            <Checkbox checked={checkBox.food} id ="food" name="food" />
                                                             <label htmlFor="food">مواد غذائية</label>
 
                                                         </div>
                                                     </div>
                                                     <div className='optionContainer'>
                                                         <img className="optionImage" 
+                                                      
                                                              onClick={()=>checkOption('case')}
                                                         src={Case} />
-                                                        <div>
-                                                            <input id="case" type={'checkbox'} name='case'/>
+                                                        <div className="mobileView">
+                                                            <Checkbox checked={checkBox.case} id ="case" name="case" />
                                                             <label htmlFor="case"> حقائب</label>
 
                                                         </div>
                                                     </div>
                                                     <div className='optionContainer'>
                                                         <img className="optionImage" 
+                                                         
                                                             onClick={()=>checkOption('tyre')}
                                                          src={Tyre} />
-                                                        <div>
-                                                            <input id='tyre' type={'checkbox'} name='tyre'/>
+                                                        <div className="mobileView"> 
+                                                            
+                                                            <Checkbox checked={checkBox.tyre} id ="tyre" name="tyre" />
                                                             <label htmlFor="tyre"> اطارات</label>
 
                                                         </div>
                                                     </div>
                                                     <div className='optionContainer'>
                                                         <img className="optionImage" 
+                                                    
                                                             onClick={()=>checkOption('cloth')}
                                                          src={Cloth} />
-                                                        <div>
-                                                            <input id="cloth" type={'checkbox'} name='cloth'/>
+                                                        <div className="mobileView">
+                                                          
+                                                            <Checkbox checked={checkBox.cloth} id ="cloth" name="cloth" />
                                                             <label htmlFor="cloth"> ألبسة</label>
 
                                                         </div>
@@ -122,11 +164,11 @@ return (
                                            
                                         </div>
                                         <img src={RightArrow}
-                                          id="leftArrow"
+                                          id="rightArrow"
                                           onClick={()=>scroll('right')}
                                           className="rightArrow"/>
                                         <img src={LeftArrow}
-                                          id="rightArrow"
+                                          id="leftArrow"
                                          onClick={()=>scroll('left')}
                                          className="leftArrow" />
                                     </div>
@@ -197,8 +239,7 @@ return (
                                     </div>
                         
             </form>
-          
-    </div>
+
 )
 
 

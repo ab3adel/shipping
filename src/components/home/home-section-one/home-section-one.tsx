@@ -1,4 +1,4 @@
-import {Navbar} from './navbar'
+import {Navbar} from '../../navbar/navbar'
 import './home-section-one.scss'
 import Wave from '../../../images/homepage/wave.svg'
 
@@ -7,7 +7,7 @@ export const HomeSectionOne =()=>{
 
     return (
         <div className="homeOneContainer">
-            <Navbar/>
+      
             <div className="body">
              <div className="textContainer">
                 <div className="text">

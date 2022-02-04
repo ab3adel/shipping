@@ -1,0 +1,14 @@
+.sortButton {
+    background-color: lightgrey;
+    border-radius: 5px;
+    color:#0078a3;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 5;
+    display: flex;
+   
+    .MuiSvgIcon-root {
+        color:white;
+    }
+}

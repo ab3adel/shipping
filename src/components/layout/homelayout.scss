@@ -1,0 +1,22 @@
+.appMainContainer {
+
+    display: grid;
+    grid-template-rows: 50px minmax(100vh,2fr) 100px ;
+ 
+}
+@media only screen  and (min-width:501px) and (max-width:1024px) {
+    .appMainContainer {
+        grid-template-rows: 50px 1.5fr 100px;
+    }
+    
+}
+@media only screen and (max-width:500px) {
+    .appMainContainer {
+        grid-template-rows:50px 1.6fr 100px;
+    }
+}
+@media screen and (orientation:landscape) {
+    .appMainContainer {
+       
+    }
+}

@@ -1,0 +1,283 @@
+.personalInfoContainer {
+   
+    grid-column: 1/4;
+    display: grid;
+    grid-template-rows: 0.1fr 1fr 0.1fr;
+    grid-template-columns: repeat(3,1fr);
+    font-weight: bold;
+    .personalInfoTitle {
+        grid-row: 1/1;
+        grid-column: 3/3;
+        display: flex;
+        justify-content: flex-end;
+        flex: 1;
+        .personalInfoAvatar {
+            display: flex;
+            justify-content: space-around;
+            align-items:center ;
+            flex-direction: row-reverse;
+            font-size: large;
+            width: 40%;
+            .MuiAvatar-root {
+                background-color: white;
+            }
+        }
+        
+    }
+    .personalInfoBody {
+        flex:1;
+        grid-row: 2/2;
+        grid-column: 1/4;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: repeat(2,1fr);
+        .upperPart {
+            grid-column: 1/3;
+            grid-row: 1/1;
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            
+            .leftSide {
+                grid-column: 1/1;
+                max-width: 100%;
+                max-height: 100%;
+              
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .identityContainer {
+                    display: flex;
+                    justify-content: center;
+                    width: 100%;
+                    height: 100%;
+                }
+               
+
+            }
+            .rightSide {
+                grid-column: 2/2;
+               display: grid;
+               grid-template-columns: 45% 45% 10%;
+               grid-template-rows: 50% 50%;
+             
+               .rightCol {
+                   grid-column: 2/2;
+                   grid-row: 1/3;
+                   display: flex;
+                   flex-direction: column;
+                   align-items: center;
+              
+               }
+               .leftCol {
+                   grid-column: 1/1;
+                   grid-row: 1/1;
+                   display: flex;
+                   align-items: flex-start;
+                   padding-right: 1rem;
+               }
+               
+              
+            }
+       }
+       .lowerPart {
+           grid-column: 2/2;
+           grid-row: 2/2;
+           display: flex;
+           flex-direction: column;
+           .MuiDivider-root {
+               margin-bottom: 1rem;
+           }
+       
+           
+           .bankField {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 45% 45% 10%;
+            grid-template-rows: 1fr;
+
+            .bankImage {
+                display: flex;
+                grid-column: 3/3;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                height: 100%;
+                img {
+                    width: 65%;
+                }
+            }
+            .bankInputs {
+                grid-column: 2/2;
+                .selector {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    font-size: large;
+                    width: 100%;
+                    margin-top: 5px;
+                    margin-bottom: 5px;
+                   
+                    .MuiOutlinedInput-root {
+                            border:1px solid #00A4DE;
+                            width:82%
+                        }
+                    
+
+                }
+            }
+        }
+    
+
+       }
+     
+    }
+    .personalInfoButton {
+        grid-row: 3/3;
+        display: flex;
+        justify-content: center;
+        grid-column: 2/2;
+        .MuiButton-root {
+            background-color: #00A4DE;
+            color: white;
+            font-size: large;
+            width: 25%;
+        }
+    }
+    .Mui-disabled {
+        opacity: 0.5;
+    }
+}
+
+@media  only screen  and (max-width:500px){
+    .personalInfoContainer {
+        font-weight: normal;
+        grid-template-columns: 1fr;
+        .personalInfoTitle {
+            grid-row: 1/1;
+            grid-column: 1/1;
+            .personalInfoAvatar {
+                width: 60%;
+            }
+        }
+        .personalInfoBody {
+            grid-row:2/2;
+            grid-template-columns: 1fr;
+            .upperPart {
+                grid-column: 1/1;
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(2,1fr);
+                .leftSide {
+                    grid-row: 2/2;
+                    grid-column: 1/1;
+                    .identityContainer {
+                   
+                        width:90%;
+                        height: 60%;
+                    }
+                }
+                .rightSide {
+                    grid-row:1/1;
+                    grid-column: 1/1;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+            .lowerPart {
+                grid-column: 1/1;
+                align-items: center;
+                justify-content: center;
+                .MuiDivider-root {
+                    width:100%;
+                    margin-bottom: 1rem;
+                }
+                .bankField {
+                    grid-template-rows: 10% 90%;
+                    grid-template-columns: 1fr;
+                    .bankInputs {
+                        grid-row:2/2;
+                        .selector {
+                            flex-direction: column-reverse;
+                            .MuiOutlinedInput-root {
+                                width: 100%;
+                                text-align: center;
+                               
+                            }
+
+                        }
+                    }
+                    .bankImage {
+                        grid-row:1/1;
+                    }
+                }
+            }
+        }
+        .personalInfoButton {
+            grid-column: 1/1;
+            grid-row:3/3;
+        }
+    }
+  
+}
+@media  only screen  and (min-width:501px) and (max-width:1024px){
+    .personalInfoContainer {
+        .personalInfoTitle{
+            width: 80%;
+            .personalInfoAvatar {
+                width: 100%;
+                white-space: nowrap;
+            }
+        }
+        .personalInfoBody {
+            .upperPart {
+                .leftSide {
+                    .identityContainer{
+                        height: 50%;
+                        width: 60%;
+                       
+                    }
+                }
+            }
+            .lowerPart{
+                .bankField{
+                    .bankInputs{
+                        .selector{
+                            flex-direction: column-reverse;
+                            .MuiOutlinedInput-root {
+                                width:100%
+                            }
+                        }
+                    }
+                }
+            }
+          
+        }
+        .personalInfoButton {
+            .MuiButton-root {
+                width: 40%;
+            }
+        }
+    }
+  
+   
+}
+@media  screen and (min-width:1024px) and (max-width:1144px) {
+    
+}
+@media  screen and (orientation : landscape ) {
+   .personalInfoContainer {
+       .personalInfoBody {
+           .upperPart {
+               .leftSide {
+                   .identity {
+                       width: 50%;
+                   }
+               }
+           }
+       }
+   }
+}

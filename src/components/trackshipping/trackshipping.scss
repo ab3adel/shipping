@@ -1,0 +1,101 @@
+
+
+.trackContainer {
+    display: grid;
+    grid-template-rows: 100px 1fr;
+    grid-row: 2/2;
+    min-height: 100vh;
+    .trackHeader {
+        clip-path: polygon(0 0 , 135% 0% ,0 100%);
+        background-color: #00A4DE;
+        display: flex;
+        justify-content: center;
+        grid-row: 1/1;
+        h2 {
+            font-size: x-large;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-bottom:1rem;
+        }
+    }
+    .trackBody {
+        display: flex;
+        grid-row: 2/2;
+        justify-content: center;
+        align-items: stretch;
+        background-image: url('../../images/trackshipping/trackbackground.svg');
+        background-size: 30%;
+        background-repeat: no-repeat;
+        background-position: left center;
+        padding-right: 1rem;
+        .trackForm {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: stretch;
+            margin-bottom: 0.5rem;
+            .trackFormBody {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-around;
+                .rowDirection {
+                    flex-direction: column-reverse;
+                }
+                .MuiButtonBase-root {
+                    font-size: large;
+                    width: 20%;
+                }
+            }
+            .trackMap {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                img {
+                    width: 50%;
+                    height: auto;
+                }
+                .showMap {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: large;
+                    cursor: pointer;
+                    .MuiSvgIcon-root {
+                        font-size: larger;
+                        color: #00A4DE;
+                    }
+
+                }
+                .showMap:hover {
+                    .MuiSvgIcon-root {
+                        font-size: 2rem;
+                    }
+                    transition:font-size 0.5s ease-in-out;
+                }
+            }
+        }
+        
+    }
+}
+
+@media only screen and (max-width:500px){
+    .trackContainer {
+        .trackBody{
+            background-position: bottom center;
+        }
+    }
+}
+
+@media only screen and (min-width:501px)  and (max-width:1023px){
+    .trackContainer {
+        .trackBody{
+            background-position: bottom center;
+            
+        }
+    }
+}

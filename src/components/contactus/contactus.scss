@@ -1,0 +1,179 @@
+.contactusContainer {
+    display: grid;
+    grid-template-rows: 100px 1fr;
+    min-height: 100vh;
+    .contactusHeader {
+        grid-row:1/1;
+        clip-path: polygon(0 0 , 135% 0% ,0 100%);
+        background-color: #00A4DE;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        background-image: url('../../images/Faqs/message.svg');
+        background-position: left center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        
+        h2 {
+            padding-top: 0.5rem;
+            color:white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+    .contactusBody {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        .contactusFormContainer {
+            grid-column: 1/1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            .contactusForm {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                flex-direction: column;
+                background: linear-gradient(to bottom,#00A4DE,#8CE0FE);
+                border: 8px solid rgba(74, 255, 157, 0.54);
+                width:40%;
+                height: 70%;
+                border-radius: 10px;
+                h1 {
+                    color:white;
+                    margin-top: 0.2rem;
+                    font-size: x-large;
+                }
+                .rowDirection {
+                    justify-content: center;
+                   
+                    .MuiFormControl-root {
+                        border-radius: 5px;
+                        height: 100%;
+                        .MuiOutlinedInput-root {
+                            border:none;
+                            background-color: white;
+                            border-radius: 10px;
+                        }
+                    }
+                }
+                .MuiTextField-root {
+                    background-color: white;
+                    border-radius: 8px;
+                    height: 30%;
+                    .MuiOutlinedInput-root {
+                        height: 100%;
+                    }
+                }
+                .MuiButton-root {
+                    background-color: #02C92D;
+                    margin-top: 0.3rem;
+                    width: 30%;
+                    font-size: 1rem;
+                    font-weight: bold;
+                }
+            }
+            
+        }
+        .contactusSocial {
+            grid-column:2/2;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            .socials {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                justify-content: space-around;
+                align-items: center;
+                padding:0.5rem;
+                height: 50%;
+                .socialsHeader {
+                    display: flex;
+                    flex-direction: column;
+                    color:  #00A4DE;
+                    h1 {
+                        font-size: x-large;
+                    }
+                    p {
+                        text-align: center;
+                    }
+                   
+                }
+                .socialsImages {
+                    display: flex;
+                    justify-content: space-evenly;
+                    width: 100%;
+                    img {
+                        width: 40px;
+                        height: 40px;
+                    }
+                }
+                .MuiButton-root {
+                    background-color: white;
+                    color: #00A4DE;
+                    border:2px solid rgb(161, 161, 161,0.4);
+                    box-shadow:0px 4px 20px rgba(0, 0, 0, 0.25), inset 0px -2px 10px rgba(0, 0, 0, 0.25);
+                    width: 50%;
+                    border-radius: 10px;
+                    font-size: large;
+                }
+            }
+        }
+    }
+    
+}
+@media only screen and (max-width:500px) {
+    .contactusContainer {
+        .contactusHeader {
+            background-size: 20%;
+            h2 {
+                justify-content: flex-start;
+            }
+        }
+        .contactusBody {
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(2,1fr);
+            .contactusFormContainer {
+                grid-row: 1/1;
+                grid-column: 1/1;
+                .contactusForm {
+                    width: 80%;  
+                    height: 100%;
+                    padding:5px;
+                }
+            }
+            .contactusSocial {
+                grid-row:2/2;
+                grid-column: 1/1;
+                justify-content: center;
+                .socials {
+                    height: 100%;
+                }
+            }
+        }
+
+
+    }
+}
+@media only screen and (min-width:501px)and (max-width:1024px) {
+    .contactusContainer {
+        .contactusBody {
+            .contactusFormContainer {
+                .contactusForm {
+                    width: 80%;
+                    height: 40%;
+                }
+            }
+            .contactusSocial {
+                justify-content: center;
+                .socials {
+                    height: 30%;
+                }
+            }
+        }
+    }
+}

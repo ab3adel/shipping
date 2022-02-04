@@ -1,0 +1,48 @@
+
+.failedContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    .failedTitle {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 100%;
+        font-size: large;
+        .MuiSvgIcon-root {
+            color:red
+        }
+    }
+    .sadFace {
+        display: flex;
+        justify-content: center;
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+    .failedButtons {
+        display: flex;
+        justify-content: space-evenly;
+        width:100%;
+        .MuiButton-root.retry {
+            background: rgb(15, 236, 15);
+            color:white;
+        }
+        .MuiButton-root.retry:hover {
+            background:rgb(15, 236, 15,0.7) ;
+        }
+
+    }
+   
+    
+}
+@media only screen and (max-width:500px) {
+    .failedContainer {
+        .sadFace {
+ 
+            }
+        }
+    
+}

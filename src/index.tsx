@@ -8,10 +8,17 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import {BrowserRouter as Router} from 'react-router-dom'
+import {AuthProvider} from './tools/authentication/authprovider'
+import {Provider} from 'react-redux'
+import {store} from './store/store'
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <App />
+      <AuthProvider>
+        <Provider store={store}>
+         <App />
+        </Provider>
+      </AuthProvider>
     </Router>
   </React.StrictMode>,
   document.getElementById('root')

@@ -1,0 +1,156 @@
+
+
+.archiveContainer {
+    grid-column: 1/4;
+    display: grid;
+    grid-template-rows: 0.2fr 1fr;
+    background-image: url('../../../images/profile/billbackground.svg');
+    background-repeat: no-repeat;
+    background-size: 90%;
+    height: 100vh;
+    background-position-x: center;
+   
+    .archiveTitle {
+        grid-row:1/1;
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 0.5rem;
+        font-weight: bold;
+        font-size: large;
+        .archiveAvatar {
+            display: flex;
+            justify-content: center;
+            p {
+                margin-right: 0.3rem;
+            }
+
+        }
+    }
+    .archiveBody {
+        grid-row:2/2;
+        display:grid;
+        grid-template-rows: 0.1fr 0.9fr;
+       
+        .tabsGroup {
+            grid-row:1/1;
+            display: flex;
+            width: 65%;
+            justify-self: center;
+            justify-content: space-evenly;
+            align-items: center;
+            .sortButton {
+                height: 40%;
+            }
+            .MuiTabs-root {
+                grid-row:1/1;
+                grid-column: 1/4;
+                width: 40%;
+                justify-content: center;
+                height: 50%;
+                .MuiTabs-scroller {
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    .MuiTabs-flexContainer {
+                        width: 70%;
+                        justify-content: space-around;
+                        flex-direction: row-reverse;
+                        .MuiButtonBase-root {
+                            opacity: 0.4;
+                            background-color:white;
+                            color: #05a7e2;
+                            font-size: large;
+                            min-height: 30px;
+                            border-end-end-radius: 50%;
+                            border-start-start-radius: 50%;
+                            width:30%;
+                        }
+                        .Mui-selected {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
+        .tabPanelBody {
+            display: flex;
+            justify-content: center;
+            overflow: hidden;
+            
+            .Table {
+                width:80%;
+                display:flex;
+                height: 80%;
+                margin-top: 1rem;
+                .MuiPaper-root {
+                    .MuiTableContainer-root {
+                        .MuiTable-root {
+                            background-color: white;
+                            border-radius: 5px;
+                            .MuiTableHead-root {
+                                font-weight: bold;
+                                tr {
+                                    th{
+                                        font-weight: bold;
+                                    }
+                                }
+                            }
+                            .MuiTableBody-root {
+                               
+                                .MuiTableRow-root {
+                                
+                                    
+                                    td {
+                                        border-top: 1px dashed #05a7e2 ;
+                                        border-bottom: 1px dashed #05a7e2;
+                                    }
+                                }
+                            }
+                        }
+                    }    
+                }
+            }
+        }
+    }
+}
+@media  only screen and (max-width:500px) {
+    .archiveContainer {
+        height: auto;
+        background-image: none;
+        .archiveBody {
+            background-image: url('../../../images/profile/billbackground.svg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            .tabsGroup {
+                width:100%;
+                flex-direction: column;
+                justify-content: space-between;
+                .MuiTabs-root {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+@media only screen and (min-width:501px) and (max-width:1024px) {
+    .archiveContainer {
+        height: auto;
+        background-position: center;
+        background-size: 100%;
+        .archiveBody {
+          .tabsGroup {
+              width:70%;
+              .MuiTabs-root {
+                  width:70%
+              }
+
+          }
+          .tabPanelBody {
+            height: 90%;
+            .Table {
+                width: 100%;
+            }
+        }
+        }
+    }
+}

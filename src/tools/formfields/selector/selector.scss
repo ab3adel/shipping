@@ -1,0 +1,38 @@
+
+ .selector {
+     margin-top: 0.2rem;
+     margin-bottom: 0.2rem;
+     display: flex;
+    align-items: center;
+    .MuiFormControl-root {
+        width: 100%;
+        .MuiOutlinedInput-root {
+            width: 100%;
+        }
+    }
+    .outerLabel {
+        white-space: nowrap;
+    }
+}
+
+
+
+@media  only screen and (max-width:500px) {
+    .selector {
+      
+        .outerLabel {
+            display: none;
+        }
+    }
+}
+@media screen and (min-width:501px) and (max-width:1024px) {
+    .selector {
+        flex-direction: column-reverse;
+        .MuiFormControl-root {
+            width: 100%;
+            .MuiOutlinedInput-root {
+                width: 100%;
+            }
+        }
+    }
+}

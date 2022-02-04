@@ -1,0 +1,333 @@
+
+
+.signUpContainer {
+    grid-row:2/2 ;
+    display: grid;
+    grid-template-rows: 0.4fr repeat(2,minmax(300px,1fr));
+    background-image: url('../../images/signup/signupbackground.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    
+    .signUpTitle {
+        grid-row: 1/1;
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: column;
+        color: white;
+        .titleText {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            h1 {
+                margin-bottom: 5px;
+            }
+            h3 {
+                margin-top: 0;
+            }
+        }
+    }
+    .signUpBody {
+        grid-row:3/3;
+        display:grid;
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows:1fr;
+        .continueButton {
+            grid-column: 2/2;
+            justify-content: center;
+            display: flex;
+            align-items: center;
+            .MuiButton-root {
+                font-size: large;
+            }
+        }
+        .signUpForm {
+            grid-column: 1/1;
+            grid-row: 1/1;
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            grid-template-rows: 1fr;
+            .rightCol {
+                grid-column: 2/2;
+                display: flex;
+                justify-content:space-evenly ;
+                flex-direction: column;
+                align-items: flex-end;
+                grid-row: 1/3;
+
+                .dotsContainer {
+                    display: flex;
+                    justify-content: space-evenly;
+                    align-items: flex-end;
+                    width: 100%;
+                    .dot {
+                        width:15px;
+                        height: 15px;
+                        border-radius: 100%;
+                       
+                    }
+                }
+                .inputGroup {
+
+                    display: flex;
+                    justify-content:center ;
+                    flex-direction: column;
+                    width:80%;
+                   
+                    .selector {
+                        width: 90%;
+                      
+                        display: flex;
+                        justify-content: space-between;
+                        color:white;
+                        font-size: large;
+                        .MuiFormControl-root{
+                         
+                            height: 90%;
+                            .MuiOutlinedInput-root {
+                                border:1px solid white;
+                                height: 90%;
+                                width: 77%;
+                                .MuiSelect-select {
+                                    color:white;
+                                }
+                                .MuiSvgIcon-root {
+                                    color:white;
+                                }
+                                
+                            }
+                        }
+                    }
+                    .rowDirection {
+                        width: 90%;
+                      color:white;
+                        .MuiFormControl-root {
+                            height: 100%;
+                            .MuiFormHelperText-root {
+                                color:white;
+                                text-shadow: 2px 2px 2px red;
+                            }
+                            .MuiOutlinedInput-root {
+                                border:1px solid white;
+                                height: 70%;
+                                width: auto;
+                                color:white;
+                                
+                            }
+                       
+                        }
+                       
+                    }
+                }
+            }  
+            .leftCol {
+                grid-column: 1/1;
+                grid-row: 1/3;
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+                flex-direction: column;
+                .checkBox {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color:white;
+                    padding-left: 5px;
+                    a {
+                        text-decoration: underline;
+                    }
+                    .MuiCheckbox-root {
+                        .MuiSvgIcon-root {
+                            color: white;
+                        }
+                    }
+                    label {
+                        white-space: nowrap;
+                    }
+                }
+                span {
+                    height: 27px;
+                    width: 25px;
+                }
+                .inputGroup {
+                    display: flex;
+                    justify-content:center ;
+                    flex-direction: column;
+                    width: 90%;
+                    padding-left: 1em;
+                    .rowDirection {
+                        width: 90%;
+                      color:white;
+                        .MuiFormControl-root {
+                            height: 100%;
+                            display: flex;
+                            justify-content: center;
+                            .MuiFormHelperText-root {
+                                color:white;
+                                text-shadow: 2px 2px 2px red;
+                            }
+                            .MuiOutlinedInput-root {
+                                border:1px solid white;
+                                height: 70%;
+                                width: auto;
+                                color:white;
+                                
+                            }
+                            .passwordInput.MuiOutlinedInput-root {
+                                border:1px solid white;
+                                padding-right: 0;
+                                height: 70%;
+                                width: 100%;
+                                color:white
+                                
+                            }
+                        }
+                       
+                    }
+                }
+            }  
+
+        }
+        
+    }
+
+}
+@media only screen and (max-width:500px) {
+    .signUpContainer {
+      
+        .signUpBody {
+            grid-template-columns: 1fr;
+            grid-template-rows: 2fr 1fr 0.4fr;
+            .continueButton {
+                grid-column: 1/1;
+                grid-row: 2/2;
+            }
+            .signUpForm {
+                grid-column: 1/1;
+                grid-row: 1/1;
+                grid-template-rows: repeat(2,1fr);
+                .rightCol {
+                    grid-row: 1/1;
+                    grid-column: 1/3;
+                    align-items: center;
+                    span {
+                        display: none;
+                    }
+                    .inputGroup {
+                        align-items: center;
+                        label {
+                            color:white
+                        }
+                        .rowDirection {
+                            .MuiOutlinedInput-root {
+                                width: 100%;
+                                color:White;
+                             }
+                            .MuiFormControl-root {
+                                width: 100%;
+                                .passwordInput.MuiOutlinedInput-root {
+                                    width:100%
+                                }
+                                
+                            }
+                        }
+                        .selector {
+                            .MuiFormControl-root {
+                                width: 100%;
+                                .MuiOutlinedInput-root {
+                                    width: 100%;;
+                                
+                                }
+                                label {
+                                    color:white;
+                                
+                                }
+                        }
+                           
+                        }
+                    }
+                   
+                }
+                .leftCol {
+                    grid-row: 2/2;
+                    grid-column: 1/3;
+                   align-items: center;
+                    .inputGroup{
+                        align-items: center;
+                        padding-left: 0;
+                        width:80%;
+                    }
+                   label {
+                       color: white;
+                   }
+                   .rowDirection {
+                    .MuiOutlinedInput-root {
+                        width: 100%;
+                        color:White;
+                     }
+                    .MuiFormControl-root {
+                        width: 100%;
+                        .passwordInput.MuiOutlinedInput-root {
+                            width:100%
+                        }
+                        
+                    }
+                }
+                    .checkBox{
+                        label {
+                            white-space: normal;
+                        }
+                    }
+                }
+            }
+            .dotsContainer {
+                grid-row: 3/3;
+                display: flex;
+                justify-content: space-evenly;
+                align-items: flex-start;
+                .dot {
+                    width:15px;
+                    height: 15px;
+                    border-radius: 100%;
+                   
+                }
+            }
+        }
+    }
+}
+@media  only screen  and (min-width:501px) and (max-width:1024px) {
+    .signUpContainer {
+        .signUpBody {
+            .signUpForm{
+                .rightCol {
+                    .inputGroup {
+                        .rowDirection{
+                            .MuiFormControl-root {
+                                width: 100%;
+                                .passwordInput.MuiOutlinedInput-root {
+                                    width: 100%;
+                                }
+                            }
+                        
+                        }    
+                        .selector {
+                            .MuiFormControl-root {
+                                .MuiOutlinedInput-root{
+                                    width: 100%;
+                                }
+                            }
+                        }
+                    }
+                }
+                .leftCol {
+                   .checkBox{
+                       label {
+                           white-space: normal;
+                       }
+                   }
+                }
+            }    
+        }
+    }
+}

@@ -1,22 +1,44 @@
-import {useState} from 'react'
+import {useState,useContext} from 'react'
 import './signupdialog.scss'
 import 
  {Dialog
   ,DialogContent
   ,DialogActions
-  ,TextField
   ,Button
-  ,IconButton,
-  InputAdornment
  ,OutlinedInput} 
 from '@mui/material'
-import 
-{Visibility,VisibilityOff,AccountCircle}
-from '@mui/icons-material'
+import {InputField} from '../../../tools/formfields/input/inputfield'
+import {Auth} from '../../../tools/authentication/authprovider'
+import {useNavigate} from 'react-router-dom'
+import {dummy,isEmail} from '../../../tools/validations/validations'
 interface Iprops {open:boolean,setOpen:Function}
+interface Ifields {[key:string]:string|boolean}
 export const SignUpDialog =({open,setOpen}:Iprops) =>{
+const [formFields,setFormFields]=useState<Ifields>({Email:"",EmailError:false
+                                                   ,Password:"",PasswordError:false})
+let {login} =useContext(Auth)
+const navigate= useNavigate()
+const setFormField = (name:string,value:string,error:string) =>{
+    let fields={...formFields}
+    fields[name]=value
+    fields[`${name}Error`]=error
+    setFormFields(fields)
+}
+const Login= () =>{
+    
+    setOpen(false)
+    let form = new FormData()
 
-const [showPassword,setShowPassword] = useState(false)
+    login({email:formFields['Email'],password:formFields['Password']})
+    let fields={...formFields}
+   /* fields={Email:"",EmailError:false
+                ,Password:"",PasswordError:false}
+    setFormFields(fields) */
+}
+const signUp= ()=>{
+    navigate('/signup')
+    setOpen(false)
+}
     return (
         <Dialog 
          open={open}
@@ -27,41 +49,27 @@ const [showPassword,setShowPassword] = useState(false)
                  </div>
                  <form>
                      <div className="input">
-                         <label htmlFor='email'>
-                             البريد الالكتروني
-                         </label>
-                         <OutlinedInput name='email'/>
+                        
+                         <InputField name="Email" type="email" formFields={formFields}
+                                  setFormFields={setFormField}
+                                  label="البريد الالكتروني" validator={isEmail}/>
                            
                      </div>
                      <div className="input">
-                         <label htmlFor='password'>
-                             كلمة المرور
-                         </label>
-                         <OutlinedInput name='password'
-                           type={showPassword ? 'text':'password'}
-                           
-                            endAdornment={
-                               <InputAdornment position="end"
-                           
-                                 >
-                                 <IconButton
-                                  sx={{color:'white'}}
-                                 onMouseUp={()=>setShowPassword(false)}
-                                   onMouseDown={()=>setShowPassword(true)} >
-                                     {showPassword ?<VisibilityOff/>: <Visibility /> }
-                                 </IconButton>
-                               </InputAdornment>
-                              }
-                           />
+                       <InputField validator={dummy} name="Password" 
+                       formFields={formFields} setFormFields={setFormField}
+                       type="password" label="كلمة المرور" />
                      </div>
                  </form>
 
              </DialogContent>
              <DialogActions>
-                 <div className="forgetPassword">
+                 <div className="forgetPassword" 
+                   
+                  onClick={()=>navigate('/forgetpassword')}>
                      هل نسيت كلمة المرور؟
                  </div>
-                 <Button >دخول</Button>
+                 <Button onClick={()=>Login()} >دخول</Button>
                  <div className="signup">
                      <div className="title">
                          <div className="line"></div>
@@ -69,6 +77,7 @@ const [showPassword,setShowPassword] = useState(false)
                          <div className="line"></div>
                      </div>
                      <Button
+                      onClick={signUp}
                        variant="outlined">انضم الينا</Button>
                  </div>
              </DialogActions>

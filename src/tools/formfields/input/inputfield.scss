@@ -1,0 +1,39 @@
+
+
+.rowDirection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: large;
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    .MuiFormControl-root {
+        .MuiOutlinedInput-root {
+            border:1px solid #00A4DE;
+           
+        }
+    }
+   
+}
+
+
+@media only screen and (min-width:501px) and (max-width:1024px) {
+    .rowDirection {
+        flex-direction: column-reverse;
+        .MuiFormControl-root {
+            .MuiOutlinedInput-root {
+          
+            }
+        }
+       
+    }
+}
+@media only screen and (max-width:500px) {
+    .rowDirection {
+        .outerLabel{
+            display:none
+        }
+    }
+    
+}

@@ -1,0 +1,30 @@
+
+.paymentContainer {
+    display: grid;
+    grid-template-rows: 100px 1fr ;
+    min-height: 100vh;
+    .paymentHeader {
+        clip-path: polygon(0 0 , 135% 0% ,0 100%);
+        background-color: #00A4DE;
+        display: flex;
+        justify-content: center;
+        grid-row: 1/1;
+        h2 {
+            font-size: x-large;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-bottom:1rem;
+        }
+    }
+    .paymentBody {
+        grid-row: 2/2;
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+    }
+}
+@media only screen and (max-width:500px) {
+
+}

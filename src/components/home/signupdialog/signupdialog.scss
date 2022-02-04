@@ -26,20 +26,27 @@
                         justify-content: space-between;
                         align-items: center;
                         margin-bottom: 1rem;
+                        .rowDirection {
+                            flex-direction: column-reverse;
+                            .MuiFormControl-root {
+                                width: 100%;
+                                .MuiOutlinedInput-root {
+
+                                    width: 100%;
+                                    border: 2px solid white;
+                                    border-radius: 5px;
+                                    color:white;
+                                   
+                                }
+                            }
+                        }
                         label {
                             color: white;
                             font-size: large;
                             text-align: center;
                             margin-bottom: 5px;
                         }
-                        .MuiOutlinedInput-root {
-
-                            width: 100%;
-                            border: 2px solid white;
-                            border-radius: 5px;
-                            color:white;
-                           
-                        }
+                        
                     }
                 }
 
@@ -53,6 +60,11 @@
                     font-size: medium;
                     color:white;
                     margin-bottom: 5px;
+                }
+                .forgetPassword:hover{
+                    text-decoration: underline;
+                    cursor: pointer;
+                    font-size: large;
                 }
                 .MuiButton-root {
                     background-color: white;
@@ -103,13 +115,36 @@
     color:white;
     font-size: small;
 }
-@media only screen and (max-width:770px) {
+@media only screen and (max-width:500px) {
     .MuiModal-root {
         .MuiDialog-container{
             .MuiPaper-root {
-                height: 60%;
+                height: auto;
                 width: 80%;
             }
         }
     }    
+}
+@media  only screen  and (min-width:501px) and (max-width:1024px){
+    .MuiModal-root{
+        .MuiDialog-container{
+            .MuiPaper-root{
+                height: 55%;
+                width: 50%;
+            }
+        }
+    }
+}
+@media  screen and (orientation:landscape) {
+    
+    .MuiModal-root {
+        overflow: auto;
+        .MuiDialog-container{
+            height: auto;
+            .MuiPaper-root {
+                height: auto;
+                width: auto;
+            }
+        }
+    }
 }

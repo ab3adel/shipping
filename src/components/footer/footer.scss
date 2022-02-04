@@ -1,0 +1,24 @@
+
+
+
+ .footer {
+    grid-row: 3/3;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #00384B;
+    .icons {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        color:white;
+        width:15%;
+    }
+    p {
+        color: white;
+        font-size: medium;
+        text-align: center;
+    }
+}
