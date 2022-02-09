@@ -3,7 +3,7 @@ import axios from 'axios'
 import {Iauth} from '../../authentication/interfaces'
 
 const instance = axios.create({
-    baseURL:"http://159.89.19.28/api"
+    baseURL:"http://Backend.sourcemediakw.cloud/api"
 });
 
 

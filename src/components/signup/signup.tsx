@@ -82,7 +82,7 @@ if (num ===1) {
  fun () {
 
     if (this.state.index ===3) return
-    //if (this.checkError(this.state.index)) return
+    if (this.checkError(this.state.index)) return
     else if (this.state.index <3) {
         this.setIndex ( )
     }

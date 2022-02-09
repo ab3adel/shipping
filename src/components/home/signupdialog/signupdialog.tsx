@@ -39,6 +39,10 @@ const signUp= ()=>{
     navigate('/signup')
     setOpen(false)
 }
+const forgetPassword =() =>{
+    navigate('/forgetpassword')
+    setOpen(false)
+}
     return (
         <Dialog 
          open={open}
@@ -66,7 +70,7 @@ const signUp= ()=>{
              <DialogActions>
                  <div className="forgetPassword" 
                    
-                  onClick={()=>navigate('/forgetpassword')}>
+                  onClick={()=>forgetPassword()}>
                      هل نسيت كلمة المرور؟
                  </div>
                  <Button onClick={()=>Login()} >دخول</Button>
