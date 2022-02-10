@@ -23,6 +23,7 @@
         clip-path: polygon(0 0 , 135% 0% ,0 100%);
         color:white;
         font-size: x-large;
+        justify-content: center;
     }
     .offersLowerPart {
         display:grid;
@@ -190,7 +191,7 @@
         .offersUpperPart {
             clip-path: polygon(0 0, 165% 0%, 0 100%);
             font-size: large;
-            justify-content: flex-start;
+            justify-content: center;
             background-size: 30%;
         }
         .offersLowerPart {

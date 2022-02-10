@@ -31,10 +31,14 @@ import Case from '../../../images/case.svg'
 import Cloth from '../../../images/cloth.svg'
 import Tyre from '../../../images/tyre.svg'
 import  {useState,useEffect} from 'react'
+import {Option} from './option'
 interface Ichoose {
     [key:string]:boolean 
 }
-
+let products =[{img:Food,nameEn:'food',nameAr:'مواد غذائية'},
+            {img:Case,nameEn:'case',nameAr:'حقائب'}
+            ,{img:Cloth,nameEn:'cloth',nameAr:'ألبسة'}
+           ,{img:Tyre,nameEn:'tyre',nameAr:'اطارات'}]
 export const MyShippingRequestForm =()=>{
 const [senderAddress ,setSenderAddress] =useState("")
 const [checkBox,setCheckBox]= useState<Ichoose>({food:false,case:false,cloth:false,tyre:false})
@@ -112,54 +116,18 @@ return (
                                         </button>
                                         <div className='collapse'>
                                             <div className="collapseContentContainer">
-                                                    <div className='optionContainer'>
-                                                        <img className="optionImage" 
+                                                  {products.map((ele:{img:string,nameEn:string,nameAr:string},index:number)=>{
+                                                      return (
+                                                          <Option img={ele.img}
+                                                                  key={index}
+                                                                  nameEn={ele.nameEn}
+                                                                  nameAr={ele.nameAr}
+                                                                  checkOption={checkOption}
+                                                                  checkBox={checkBox}/>
+                                                      )
+                                                  })}
                                                    
-                                                          onClick={()=>checkOption('food')}
-                                                         src={Food} />
-                                                        <div className="mobileView">
-                                                            
-                                                            <Checkbox checked={checkBox.food} id ="food" name="food" />
-                                                            <label htmlFor="food">مواد غذائية</label>
-
-                                                        </div>
-                                                    </div>
-                                                    <div className='optionContainer'>
-                                                        <img className="optionImage" 
-                                                      
-                                                             onClick={()=>checkOption('case')}
-                                                        src={Case} />
-                                                        <div className="mobileView">
-                                                            <Checkbox checked={checkBox.case} id ="case" name="case" />
-                                                            <label htmlFor="case"> حقائب</label>
-
-                                                        </div>
-                                                    </div>
-                                                    <div className='optionContainer'>
-                                                        <img className="optionImage" 
-                                                         
-                                                            onClick={()=>checkOption('tyre')}
-                                                         src={Tyre} />
-                                                        <div className="mobileView"> 
-                                                            
-                                                            <Checkbox checked={checkBox.tyre} id ="tyre" name="tyre" />
-                                                            <label htmlFor="tyre"> اطارات</label>
-
-                                                        </div>
-                                                    </div>
-                                                    <div className='optionContainer'>
-                                                        <img className="optionImage" 
-                                                    
-                                                            onClick={()=>checkOption('cloth')}
-                                                         src={Cloth} />
-                                                        <div className="mobileView">
-                                                          
-                                                            <Checkbox checked={checkBox.cloth} id ="cloth" name="cloth" />
-                                                            <label htmlFor="cloth"> ألبسة</label>
-
-                                                        </div>
-                                                    </div>
-                                                    
+                                                 
                                             </div>
                                            
                                         </div>

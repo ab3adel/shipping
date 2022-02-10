@@ -1,11 +1,14 @@
 
+import {ImageContainer} from '../../../tools/lazyimage/imagecontainer'
+
 interface Iprops {img:string,company:string,offerValue:number,chooseOffer:Function,num:number}
 
 export const Offer =({img,company,offerValue,chooseOffer,num}:Iprops) =>{
 return (
     <>
-            <div className='imgContainer'>
-            <img src={img}  />
+        <div className='imgContainer'>
+            <ImageContainer classCss='' src={img} />
+    
         </div>
         <div className="offersInfo">
             <div className="line">
