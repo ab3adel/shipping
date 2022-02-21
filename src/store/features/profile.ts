@@ -103,7 +103,6 @@ const profileSlicer = createSlice ({
       .addCase(updateUsreName.fulfilled,(state,action)=>{
 
           let{payload}=action.payload
-          console.log(payload)
           let [userName,nickName]=(payload.name as string).split(' ')
           state.updatingUserStatus='succeed'
           state.data[0].name=userName
