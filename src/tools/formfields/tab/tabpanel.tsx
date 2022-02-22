@@ -6,7 +6,7 @@ export const TabPanel=({value,index,children}:Iprops)=>{
 
      return (
          <div 
-           style={{display:value !== index?'none':'flex'}}
+           style={{display:value !== index?'none':'grid'}}
            className="tabPanelBody">
                {value === index && (
                    

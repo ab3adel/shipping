@@ -11,7 +11,7 @@ export const HomeSectionOne =()=>{
             <div className="body">
              <div className="textContainer">
                 <div className="text">
-                    <h3>أهلا بك في </h3>
+                    <h3>  أهلا بك في مرسال  </h3>
                     <div>اشحن معنا بكل سهولة وامان</div>
                </div>
              </div>

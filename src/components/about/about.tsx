@@ -18,7 +18,7 @@ const navigate =useNavigate()
             <div className="aboutBody">
                 <div className="topRow">
                     <div className="intro">
-                     <p>   في  نهتم براحة و سلامة عملائنا </p>
+                     <p>   في مرسال نهتم براحة و سلامة عملائنا </p>
                         <br/>
                      <p>  كل ما عليك فعله هو الانضمام الينا
                      </p> 
