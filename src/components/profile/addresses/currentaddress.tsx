@@ -7,10 +7,17 @@ import
 import {useState} from 'react'
 import {NewAddress} from './newaddress'
 import {MyButton} from '../../../tools/formfields/button/button'
-export const CurrentAddress =({formFields,setFormFields}:{formFields:any,setFormFields:Function}) =>{
-    const [value] =useState("NewYork , SABAEL,1001 McDowell Street")
-    const [newAddress,setNewAddress] =useState(false)
+import {translator} from '../../../tools/translator'
+interface iProps {formFields:any,setFormFields:Function,
+                  countriesName:string[],cities:string [],updateAddress:Function,
+                 countryStatus:string}
+export const CurrentAddress =({formFields,setFormFields,countriesName
+                             ,cities,updateAddress,countryStatus}:iProps) =>{
    
+    const [newAddress,setNewAddress] =useState(false)
+   let value =`${formFields['Name']? formFields['Name']:'[Name]'} - ${formFields['Country']? formFields['Country'] :'[Country]'}-${formFields['City']? formFields['City'] :'[City]'}`
+
+
     return (
         <>
             <div className="currentAddress">
@@ -19,12 +26,21 @@ export const CurrentAddress =({formFields,setFormFields}:{formFields:any,setForm
                     type={'text'}
                     value={value}
                     />
-                   { newAddress? "":<MyButton fun={()=>setNewAddress(true)}>تعديل</MyButton>}
+                   { newAddress? "":<MyButton fun={()=>setNewAddress(true)} disabled={true}>
+                                              {translator('Buttons','Edit')}
+                                              </MyButton>}
 
                 </div>
                 {newAddress? 
                   <div className="newAddressContainer">
-                    <NewAddress formFields={formFields} setFormFields={setFormFields} undo={()=>setNewAddress(false)} />
+                    <NewAddress countriesName={countriesName} 
+                               formFields={formFields} 
+                               setFormFields={setFormFields} 
+                               cities={cities}
+                               disableName={true}
+                               countryStatus={countryStatus}
+                               doAction={()=>updateAddress()}
+                               undo={()=>setNewAddress(false)} />
 
                   </div> :
                   ""

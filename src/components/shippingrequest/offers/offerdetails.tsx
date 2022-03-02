@@ -12,6 +12,7 @@ import
         ,Checkbox
     } 
 from '@mui/material'
+import { translator } from '../../../tools/translator'
 interface itestData {src:string,id:number,name:string,cost:number}
 export const OfferDetails =()=>{
     let TestData = [{src:Fedex,id:1,name:"Fedex",cost:25}
@@ -46,35 +47,41 @@ export const OfferDetails =()=>{
     return  (
         <div className="offerDetailsMain">
             <div className="offerDetailsUpperPart">
-                  <h3> اختيار العرض</h3>
+            {translator('ShippingPage','body','OfferDetailsSection','mainTitle')} 
             </div>
             <div className="offerDetailsLowerPart">
                  <div className="infoContainer">
                      <img src={offer.src} />
                      <div className="info">
                          <div className="line">
-                            <span className="value">{offer.name}</span> <span>اسم الشركة</span>
+                            <span className="value">{offer.name}</span>{translator('ShippingPage','body','OfferDetailsSection','body','companyName')} 
                          </div>
                          <div className="line">
-                            <span  className="value">{offer.cost}</span>      <span> قيمة العرض</span>
+                            <span  className="value">{offer.cost}</span>{translator('ShippingPage','body','OfferDetailsSection','body','offerValue')} 
                          </div>
                          <div className="checkboxInput">
                                
                                 <Checkbox checked={billChecked}
                                        onClick={()=>setBillChecked(!billChecked)}
                                      name="bill" id="bill" />
-                                <label htmlFor="bill">اضافة تكلفة الى الفاتورة النهائية</label>
+                                <label htmlFor="bill">
+                                {translator('ShippingPage','body','OfferDetailsSection','body','checkBox')} 
+                                </label>
                                
                          </div>
                      </div>
                  </div>
                 <div className="radioButton">
                     <div className="group">
-                        <label htmlFor='sender'>الدفع عن طريق المرسل</label>
+                        <label htmlFor='sender'>
+                        {translator('ShippingPage','body','OfferDetailsSection','body','Inputs','sender')} 
+                        </label>
                         <input id="sender" type={'radio'} name="sender"  onClick={()=>addLink('hide')}/>
                     </div>
                     <div className="group">
-                        <label htmlFor='reciever'>الدفع عن طريق المستقبل</label>
+                        <label htmlFor='reciever'> 
+                        {translator('ShippingPage','body','OfferDetailsSection','body','Inputs','reciever')} 
+                        </label>
                         <input id="reciever" type={'radio'} name="reciever" onClick={()=>addLink('show')} />
                     </div>
                 </div>
@@ -82,7 +89,7 @@ export const OfferDetails =()=>{
                 <div className="addLink">
                     <button >
                           <Share fontSize='inherit'/>
-                          مشاركة رابط
+                          {translator('Buttons','Share')} 
                     </button>
                     <input type={'text'}></input>
                 </div>
@@ -90,7 +97,7 @@ export const OfferDetails =()=>{
             </div>
             <div className="saveOrder">
                       <button onClick={()=>setOpen(true)}>
-                          حفظ الطلب
+                      {translator('Buttons','Save')} 
                       </button>
                 </div>
         {open && (

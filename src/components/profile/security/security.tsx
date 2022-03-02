@@ -12,6 +12,7 @@ import {AnotherOption} from './anotheroption'
 import {NewPassword} from './newpassword'
 import {isEmail,dummy} from '../../../tools/validations/validations'
 import {Ifield} from '../../../tools/formfields/interfaces'
+import {translator} from '../../../tools/translator'
 export const Security = ()=>{
     const [newPassword,setNewPassword] =useState(false)
     const [formFields,setFormFields]=useState <Ifield>({
@@ -40,7 +41,7 @@ export const Security = ()=>{
         <div className="securityContainer">
             <div className="securityTitle">
                 <div className="securityAvatar">
-                    الامان  
+                    {translator('ProfilePage','SecuritySection','mainTitle')}
                     <img src={Sheld} />
                 
                 </div>
@@ -49,13 +50,15 @@ export const Security = ()=>{
                 <div className="passwordOption">
                     <div className="authorization">
                         <InputField validator={isEmail} name='Email' type="email" 
-                        label="البريدالالكتروني" formFields={formFields} setFormFields={setFormField} />
+                        label={translator('Inputs','Email')} formFields={formFields} setFormFields={setFormField} />
                         <InputField validator={dummy} name="Password" 
                           formFields={formFields} setFormFields={setFormField}
-                         type="text" label="كلمة المرور" />
+                         type="text" label={translator('Inputs','Password')} />
                     </div>
                     <div className="newPasswordButton">
-                        <Button onClick={(e:React.MouseEvent)=>changePassword(e)}>تغيير كلمة المرور</Button>
+                        <Button onClick={(e:React.MouseEvent)=>changePassword(e)}>
+                        {translator('Buttons','ChangePassword')}
+                        </Button>
                     </div>
                 </div>
                 {

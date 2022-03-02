@@ -76,19 +76,21 @@
                     width:80%;
                    
                     .selector {
-                        width: 90%;
+                       
                       
                         display: flex;
                         justify-content: space-between;
                         color:white;
                         font-size: large;
                         .MuiFormControl-root{
-                         
+                            label {
+                                color:white;
+                            }
                             height: 90%;
                             .MuiOutlinedInput-root {
                                 border:1px solid white;
                                 height: 90%;
-                                width: 77%;
+                                
                                 .MuiSelect-select {
                                     color:white;
                                 }
@@ -100,10 +102,13 @@
                         }
                     }
                     .rowDirection {
-                        width: 90%;
+                       
                       color:white;
                         .MuiFormControl-root {
                             height: 100%;
+                            .MuiFormLabel-root {
+                                color:white;
+                            }
                             .MuiFormHelperText-root {
                                 color:white;
                                 text-shadow: 2px 2px 2px red;
@@ -157,12 +162,15 @@
                     width: 90%;
                     padding-left: 1em;
                     .rowDirection {
-                        width: 90%;
+                        
                       color:white;
                         .MuiFormControl-root {
                             height: 100%;
                             display: flex;
                             justify-content: center;
+                            .MuiFormLabel-root {
+                                color:white;
+                            }
                             .MuiFormHelperText-root {
                                 color:white;
                                 text-shadow: 2px 2px 2px red;
@@ -191,7 +199,91 @@
         }
         
     }
-
+    
+}
+.MuiModal-root.addressForm {
+    .MuiDialog-container {
+        .MuiPaper-root {
+            .MuiDialogContent-root {
+                .newAddress {
+                    .newAddressInputs {
+                        display: flex;
+                        flex-direction: column;
+                        .addressesSpec {
+                            display: flex;
+                            flex-wrap: wrap;
+                            align-items: center;
+                            .rowDirection {
+                                width:50%;
+                                color:white;
+                                .MuiFormControl-root {
+                                    label {
+                                        color:white;
+                                    }
+                                }
+                            }
+                            .selector {
+                                width:50%;
+                                color:white;
+                                .MuiFormControl-root {
+                                    label {
+                                        color:white;
+                                    }
+                                }
+                            }
+                        }
+                        .selectionsGroup{
+                            display: flex;
+                            flex-wrap: wrap;
+                            align-items: center;
+                            .selector {
+                                width:50%;
+                                color:white;
+                                .MuiFormControl-root {
+                                    label {
+                                        color:white;
+                                    }
+                                }
+                            }
+                            .selector {
+                                width:50%;
+                                color:white;
+                                .MuiFormControl-root {
+                                    label {
+                                        color:white;
+                                    }
+                                }
+                            }
+                            .addressesLines{
+                                width: 100%;
+                                display: flex;
+                                flex-wrap: wrap;
+                                align-items: center;
+                                .rowDirection {
+                                    width:50%;
+                                    color:white;
+                                    .MuiFormControl-root {
+                                        label {
+                                            color:white;
+                                        }
+                                    }
+                                }
+                            }
+                            
+                        }
+                    }
+                }
+            }
+        }
+        .MuiDialogActions-root {
+            align-items: stretch;
+            justify-content: stretch;
+            .newAddressButtons {
+                display: flex;
+                justify-content: space-evenly;
+            }
+        }
+    }
 }
 @media only screen and (max-width:500px) {
     .signUpContainer {

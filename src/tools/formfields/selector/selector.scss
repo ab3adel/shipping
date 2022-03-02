@@ -3,7 +3,13 @@
      margin-top: 0.2rem;
      margin-bottom: 0.2rem;
      display: flex;
-    align-items: center;
+    align-items: flex-start;
+    flex-direction:column;
+    p {
+        font-size: small;
+        padding-left: 0.5rem;
+        color:#d32f2f;
+    }
     .MuiFormControl-root {
         width: 100%;
         .MuiOutlinedInput-root {

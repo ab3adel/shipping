@@ -98,8 +98,6 @@ const profileSlicer = createSlice ({
   },
   extraReducers(builder){
       builder
-     
-
       .addCase(updateUsreName.fulfilled,(state,action)=>{
 
           let{payload}=action.payload

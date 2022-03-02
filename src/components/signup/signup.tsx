@@ -7,17 +7,20 @@ import axios from '../../tools/api/axios/axios'
 import {Notify,severity} from '../../tools/notification/notification'
 import {Ifield} from '../../tools/formfields/interfaces'
 import React from 'react'
-import {Navigate} from 'react-router-dom'
-import {WithRouter} from '../../tools/routerwrapper/routerwrapper'
 import { AxiosError } from 'axios'
-
-
-interface Istate {index:number,formFields:Ifield
+import {AddressForm} from './addressform'
+import {connect,MapDispatchToProps,MapStateToProps,DispatchProp} from 'react-redux'
+import {getCities,getCountries} from '../../store/features/addresses'
+import {Apis} from '../../tools/api/apis'
+import {translator} from '../../tools/translator'
+interface Istate {index:number,formFields:Ifield,open:boolean
                 ,isNotified:boolean,severity:severity,message:string}
  class  SignUp extends React.Component<any,Istate> {
+
     constructor (props:any) {
         super (props)
         this.state= {
+            open:false,
             isNotified:false,
             severity:'success',
             message:'',
@@ -37,6 +40,9 @@ interface Istate {index:number,formFields:Ifield
         }
         
         this.fun= this.fun.bind(this)
+    }
+    componentDidMount() {
+        this.props.getCountries()
     }
 handlerNotification = (message:string,openState:boolean,severity:severity) =>{
 this.setState (pre=>({...pre,isNotified:openState,severity:severity,message:message}))
@@ -81,11 +87,11 @@ if (num ===1) {
 }
  fun () {
 
-    if (this.state.index ===3) return
-    if (this.checkError(this.state.index)) return
+     if (this.state.index ===3) return
+     //if (this.checkError(this.state.index)) return
     else if (this.state.index <3) {
         this.setIndex ( )
-    }
+     }
 }
 setFormFields = (name:string,value:string,error:string) => {
     
@@ -125,22 +131,31 @@ signUp =()=>{
             let {name,id,active,access_token}=res.data.payload
            localStorage.setItem('user',JSON.stringify({name,id,active,access_token}) )
            this.handlerNotification(`تم تسجيل الدخول بنجاح`,true,'success')
-           window.location.href="http://localhost:3000/"
+           window.location.href="https://backend.wodex.online/api/"
          })
          .catch((err:AxiosError)=>{
              this.handlerNotification(err.message,true,'error')
          })
 }
+setOpen= (val:boolean)=>{
+    this.setState(pre=>({...pre,open:val}))
+}
+getCities=()=>{
+    this.props.getCities()
+}
+getCountries=async()=>{
 
+ 
+}
 render () {
-  let  {fun,state,setFormFields,setIsNotified}=this
+  let  {fun,state,setFormFields,setIsNotified,setOpen,props}=this
+  let countriesName=props.countries?.map ((ele:any)=>ele.Name) as string[]
 
     return (
         <div className="signUpContainer">
             <div className="signUpTitle">
                 <div className="titleText">
-                    <h1>انشاء حساب</h1>
-                    <h3>سجل الان بخطوات بسيطة</h3>
+                    {translator('SignUpPage','mainTitle')}
                 </div>
 
             </div>
@@ -149,7 +164,7 @@ render () {
                     {state.index <3 ?
                     <MyButton fun={()=>fun()}>
                         <>
-                        متابعة
+                        {translator('Buttons','Continue')}
                         <ArrowRightAlt fontSize='inherit'/>
                         </>
                     </MyButton>:
@@ -158,11 +173,12 @@ render () {
                     fun={()=>this.signUp()}
                     >
                         <>
-                        تم</>
+                        {translator('Buttons','Done')}</>
                         </MyButton>}
                 </div>
                 <SignUpForm index={state.index} 
                  formFields={state.formFields}
+                 setOpen={setOpen}
                  setFormFields={setFormFields}/>
                 
             </div>
@@ -172,8 +188,23 @@ render () {
                        severity={state.severity}
                        children={state.message}/>
            )}
+         {state.open && (
+            <AddressForm open={state.open} setOpen={setOpen}
+            cities={['']} countriesName={countriesName}
+             formFields={state.formFields} setFormFields={setFormFields}/>
+        )}
         </div>
+       
     )
 }
 }
-export default SignUp;
+const mapDispatchToProps:MapDispatchToProps<any,any>=(dispatch:any)=>{
+    return {
+        getCities:(str:string)=>dispatch(getCities(str)),
+        getCountries:()=>dispatch(getCountries())
+    }
+}
+const mapStateToProps=(state:any)=>({
+addresses:state.addresses
+})
+export default connect(mapStateToProps,mapDispatchToProps)( SignUp);

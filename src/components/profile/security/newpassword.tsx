@@ -3,6 +3,7 @@ import {InputField} from '../../../tools/formfields/input/inputfield'
 import {Button} from '@mui/material'
 import {isPassword,dummy,isPasswordConfirmed} from '../../../tools/validations/validations'
 import {Ifield} from '../../../tools/formfields/interfaces'
+import {translator} from '../../../tools/translator'
 export const NewPassword =({formFields,setFormFields}:{formFields:Ifield,setFormFields:Function}) =>{
 
     return (
@@ -10,17 +11,17 @@ export const NewPassword =({formFields,setFormFields}:{formFields:Ifield,setForm
             <div className="oneColumn">
                 <InputField validator={isPassword} name="Password" type='password' 
                   formFields={formFields} setFormFields={setFormFields}
-                label="كلمة المرور الجديدة" />
+                label={translator('Inputs','NewPassword')} />
                 <InputField validator={isPasswordConfirmed} name="PasswordConfirmation" type="text" 
                    formFields={formFields} setFormFields={setFormFields}
-                label="تأكيد كلمة المرور" />
+                label={translator('Inputs','PasswordConfirmation')}  />
                 <InputField    validator={dummy} name="ValidationCode" type="number" 
                    formFields={formFields} setFormFields={setFormFields}
-                label="رمز التحقق" />
+                label={translator('Inputs','VerificationCode')} />
             </div>
             <div className="newPasswordFormButtons">
-                <Button>حفظ</Button>
-                <Button>تراجع</Button>
+                <Button>{translator('Buttons','Save')}</Button>
+                <Button>{translator('Buttons','Cancle')}</Button>
             </div>
         </div>
     )

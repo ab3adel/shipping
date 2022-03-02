@@ -20,7 +20,7 @@ import {useSelector,useDispatch} from 'react-redux'
 import {updateUsreName,UpdateBankName} from '../../../store/features/profile'
 import {Notify,severity} from '../../../tools/notification/notification'
 import {Auth} from '../../../tools/authentication/authprovider'
-
+import {translator} from '../../../tools/translator'
 export const PersonalInfo =()=>{
     const {user,setUser}= useContext(Auth)
     const [screenWidth,setScreenWidth] = useState(0)
@@ -107,7 +107,7 @@ const updateUserData =()=>{
     dispatch(UpdateBankName({id:user.customer_id,form:formBank}))
     
 }
-console.log(user)
+
 
     return (
         <div className="personalInfoContainer">
@@ -116,7 +116,7 @@ console.log(user)
                     <Avatar src={Profile}>
                       
                     </Avatar>
-                    معلومات شخصية
+                    {translator('ProfilePage','PersonalInfoSection','mainTitle')}
                 </div>
             </div>    
             <div className="personalInfoBody">
@@ -129,17 +129,17 @@ console.log(user)
                         </div>
                         <div className="rightSide"> 
                             <div className="rightCol">
-                                <InputField     validator={dummy} name="Name" type="text" label="الاسم"
+                                <InputField     validator={dummy} name="Name" type="text" label={translator('Inputs','Name')}
                                  formFields={formFields} setFormFields={setFormField}/>
                                 {screenWidth <770 &&(  <InputField   validator={dummy}  name="NickName" type="text" 
-                                                                       formFields={formFields} setFormFields={setFormField} label="الكنية"/>)}
+                                                                       formFields={formFields} setFormFields={setFormField} label={translator('Inputs','NickName')}/>)}
                                 <InputField    validator={dummy} name ="Birthdate" type="date" 
-                                  formFields={formFields} setFormFields={setFormField} label="تاريخ الميلاد"/>
+                                  formFields={formFields} setFormFields={setFormField} label={translator('Inputs','BirthDate')}/>
                                 <InputField    validator={dummy} name="Phone" type="number" 
-                                  formFields={formFields} setFormFields={setFormField} label="رقم الجوال" />
+                                  formFields={formFields} setFormFields={setFormField} label={translator('Inputs','PhonNumber')} />
                             </div>
                             <div className="leftCol" style={{display:screenWidth>770? 'flex':'none'}}>
-                                <InputField   formFields={formFields} setFormFields={setFormField}   validator={dummy} name="NickName" type="text" label="الكنية"/>
+                                <InputField   formFields={formFields} setFormFields={setFormField}   validator={dummy} name="NickName" type="text" label={translator('Inputs','NickName')}/>
                             </div>
                         </div>
                     </div>
@@ -151,10 +151,10 @@ console.log(user)
                             <div className="bankInputs">
                                 <MySelector options={["East","West","national","Barakah",""]} 
                                     name="Bank"  formFields={formFields} setFormFields={setFormField}
-                                    label="اسم البنك" />
+                                    label={translator('Inputs','BankName')}/>
                                 <InputField    validator={dummy} name="Account" type="number" 
                                     formFields={formFields} setFormFields={setFormField}
-                                  label="رقم الحساب" />
+                                  label={translator('Inputs','AccountNumber')} />
                                 <InputField    validator={dummy} name="IBANN" type='number' 
                                    formFields={formFields} setFormFields={setFormField}
                                  label="IBAN" />
@@ -171,7 +171,7 @@ console.log(user)
                     <Button 
                     disabled={user.active ? user.active ===1? false:true:true  }
                      onClick={()=>updateUserData()} >
-                        حفظ</Button>
+                        {translator('Buttons','Save')}</Button>
             </div>
             {not.isNotified && (
                 <Notify isNotified={not.isNotified}

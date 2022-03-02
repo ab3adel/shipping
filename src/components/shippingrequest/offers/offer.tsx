@@ -1,5 +1,6 @@
 
 import {ImageContainer} from '../../../tools/lazyimage/imagecontainer'
+import { translator } from '../../../tools/translator'
 
 interface Iprops {img:string,company:string,offerValue:number,chooseOffer:Function,num:number}
 
@@ -12,14 +13,16 @@ return (
         </div>
         <div className="offersInfo">
             <div className="line">
-                <span>اسم الشركة</span>  <span className='value'>{company}</span>
+            {translator('ShippingPage','body','OffersSection','companyName')} <span className='value'>{company}</span>
             </div>
             <div className="line"> 
-                <span> قيمة العرض</span>  <span className='value'>{offerValue}</span>
+            {translator('ShippingPage','body','OffersSection','offerValue')}   <span className='value'>{offerValue}</span>
             </div>
         </div>
         <div className="offersBtn">
-            <button onClick={()=>chooseOffer(num)}> اختار العرض</button>
+            <button onClick={()=>chooseOffer(num)}> 
+            {translator('ShippingPage','body','OffersSection','buttonTitle')}  
+            </button>
         </div>
      </>
 )

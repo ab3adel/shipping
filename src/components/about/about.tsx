@@ -6,6 +6,7 @@ import Eye from '../../images/Faqs/eye.svg'
 import {Button} from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 import {ImageContainer} from '../../tools/lazyimage/imagecontainer'
+import {translator} from '../../tools/translator'
  export default  function About () {
 
 const navigate =useNavigate()
@@ -13,19 +14,16 @@ const navigate =useNavigate()
     return (
         <div className="aboutContainer">
             <div className="aboutHeader">
-                <h2>من نحن</h2>
+                {translator('AboutPage','mainTitle')}
             </div>
             <div className="aboutBody">
                 <div className="topRow">
                     <div className="intro">
-                     <p>   في مرسال نهتم براحة و سلامة عملائنا </p>
-                        <br/>
-                     <p>  كل ما عليك فعله هو الانضمام الينا
-                     </p> 
+                    {translator('AboutPage','body','section1')}
                     </div>
                 
                     <div className="poster">
-                        <p>اختر ما تريد ودعنا نحزمه </p>
+                    {translator('AboutPage','body','section2')}
                    
                         <ImageContainer src={Packing} classCss='' />
                     </div>
@@ -34,7 +32,7 @@ const navigate =useNavigate()
                 <div className="middleRow">
                 
                     <div className="poster">
-                            <p>   نوصله الى وجهتك </p>
+                    {translator('AboutPage','body','section3')}
                             <ImageContainer src={Box} classCss='' />
                         </div>
                     </div>
@@ -42,7 +40,7 @@ const navigate =useNavigate()
                 <div className="bottomRow">
                    
                     <div className="poster">
-                            <p>أو نقوم بتخزينه لوقت لاحق </p>
+                    {translator('AboutPage','body','section4')}
                             <ImageContainer src={Box1} classCss='' />
                           
                     </div>
@@ -52,7 +50,7 @@ const navigate =useNavigate()
             <div className="aboutFooter">
                 <div className="aboutButton">
                     <Button onClick={()=>navigate('/signup')}>
-                        الانضمام الينا
+                    {translator("Buttons",'JoinUs')}
                     </Button>
                     <img src={Eye} />
                 </div>

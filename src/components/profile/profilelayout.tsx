@@ -16,7 +16,7 @@ import {
   import {Apis} from '../../tools/api/apis'
   import {timer} from '../../tools/timer'
   import {Notify,severity} from '../../tools/notification/notification'
-
+  import {translator} from '../../tools/translator'
 interface Ifield  {[key:string]:string|boolean}
 
 export const ProfileLayout= ()=>{
@@ -61,7 +61,7 @@ export const ProfileLayout= ()=>{
                 dispatch(fetchingProfileFailed())
             })
         }
-        if (status === 'idle' || status==='failed' && user.active){
+        if (status === 'idle'  && user.active){
             dispatch(fetchingProfile())
             fetchProfile()
             setNot(pre=>({...pre,isNotified:false}))
@@ -98,7 +98,7 @@ export const ProfileLayout= ()=>{
                            
                           <div className="edit" onClick={inputClick}>
                               <Edit fontSize="inherit" color="inherit" className="smallPen" />
-                              <span>  ...تعديل الصورة </span>
+                              {translator('ProfilePage','EditImage')}
                               <input type='file' style={{display:"none"}} 
                                   onChange={editImage}
                                   id="profileImageInput" />
@@ -106,7 +106,7 @@ export const ProfileLayout= ()=>{
                         </div>           
                 </div>
                 <div className="profileTitle">
-                        <h3>حسابي</h3>
+                {translator('ProfilePage','mainTitle')}
                 </div> 
 
             </div>

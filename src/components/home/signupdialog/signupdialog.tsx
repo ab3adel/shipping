@@ -11,6 +11,7 @@ import {InputField} from '../../../tools/formfields/input/inputfield'
 import {Auth} from '../../../tools/authentication/authprovider'
 import {useNavigate} from 'react-router-dom'
 import {dummy,isEmail} from '../../../tools/validations/validations'
+import {translator} from '../../../tools/translator'
 interface Iprops {open:boolean,setOpen:Function}
 interface Ifields {[key:string]:string|boolean}
 export const SignUpDialog =({open,setOpen}:Iprops) =>{
@@ -25,6 +26,8 @@ const setFormField = (name:string,value:string,error:string) =>{
     setFormFields(fields)
 }
 const Login= () =>{
+   
+    if (checkRequireFields().length >0) return
     
     setOpen(false)
     let form = new FormData()
@@ -34,6 +37,21 @@ const Login= () =>{
    /* fields={Email:"",EmailError:false
                 ,Password:"",PasswordError:false}
     setFormFields(fields) */
+}
+const checkRequireFields=() =>{
+    let newFormFields={...formFields}
+    let requiredFields= Object.keys(newFormFields).map(ele=>{
+        
+        if (!Boolean(newFormFields[ele]) && !ele.includes('Error')) {
+        newFormFields[`${ele}Error`]='this field is required'
+
+            return ele
+        }
+    
+     })
+     setFormFields(newFormFields)
+    
+     return requiredFields.filter(ele=>ele)
 }
 const signUp= ()=>{
     navigate('/signup')
@@ -49,20 +67,21 @@ const forgetPassword =() =>{
          onClose={()=>setOpen(false)}>
              <DialogContent>
                  <div className="title">
-                     تسجيل الدخول
+                     {translator('HomePage','SignUpDialog','mainTitle')}
                  </div>
                  <form>
                      <div className="input">
                         
-                         <InputField name="Email" type="email" formFields={formFields}
-                                  setFormFields={setFormField}
-                                  label="البريد الالكتروني" validator={isEmail}/>
+                        <InputField name="Email" type="email" formFields={formFields}
+                                  setFormFields={setFormField} requireText={formFields['EmailError'] as string}
+                                  label={translator('Inputs','Email')} validator={isEmail}/>
                            
                      </div>
                      <div className="input">
                        <InputField validator={dummy} name="Password" 
-                       formFields={formFields} setFormFields={setFormField}
-                       type="password" label="كلمة المرور" />
+                            formFields={formFields} setFormFields={setFormField}
+                            requireText={formFields['PasswordError'] as string}
+                            type="password" label={translator('Inputs','Password')}/>
                      </div>
                  </form>
 
@@ -71,18 +90,18 @@ const forgetPassword =() =>{
                  <div className="forgetPassword" 
                    
                   onClick={()=>forgetPassword()}>
-                     هل نسيت كلمة المرور؟
+                    { translator('HomePage','SignUpDialog','body','section1')}
                  </div>
                  <Button onClick={()=>Login()} >دخول</Button>
                  <div className="signup">
                      <div className="title">
                          <div className="line"></div>
-                        <span>لا تملك حساب؟</span> 
+                         { translator('HomePage','SignUpDialog','body','section2')}
                          <div className="line"></div>
                      </div>
                      <Button
                       onClick={signUp}
-                       variant="outlined">انضم الينا</Button>
+                       variant="outlined">{translator('Buttons','JoinUs')}</Button>
                  </div>
              </DialogActions>
 

@@ -1,0 +1,25 @@
+.css-5ryogn-MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked{
+    color:white
+}
+.MuiStack-root {
+    .MuiSwitch-root{
+       .MuiSwitch-switchBase.Mui-checked{
+            color:yellow
+        }
+    }
+}
+@media only screen and (max-width:501px) {
+ 
+
+    .css-nen11g-MuiStack-root {
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            .MuiSwitch-root.MuiSwitch-sizeMedium {
+                transform:rotate(90deg)
+               
+            }
+        }
+    
+}

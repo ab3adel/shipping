@@ -8,5 +8,11 @@ export const Apis = {
     UserName:(id:number)=>`/users/${id}`,
     Profild :'/profile',
     Faqs:'/faq',
-    ContactUs:'/contacts'
+    ContactUs:'/contacts',
+    Recipients:'/reciepients',
+    ShowUpdateDeleteRecipients:(id:number)=>`/reciepients/${id}`,
+    Countries:'/shipping/countries',
+    Cities:`/shipping/cities`,
+    Country:'/shipping/country'
+
 }

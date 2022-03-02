@@ -32,6 +32,7 @@ import Cloth from '../../../images/cloth.svg'
 import Tyre from '../../../images/tyre.svg'
 import  {useState,useEffect} from 'react'
 import {Option} from './option'
+import {translator} from '../../../tools/translator'
 interface Ichoose {
     [key:string]:boolean 
 }
@@ -107,12 +108,16 @@ return (
             <form className="srForm">
                             
                                     <div className='optionsContainer'  >
-                                        <FormLabel htmlFor='select' > نوع الشحنة</FormLabel>
+                                        <FormLabel htmlFor='select' > 
+                                        {translator('ShippingPage','body','ShippingForm','shipmentType')}
+                                        </FormLabel>
                                         <button onClick={(e)=>openOptions(e)} > 
                                             <ArrowDownward  id ="arrowDown"
                                               style={{color:'inherit',fontSize:'0.8rem'}} />
                                             <ArrowUpward  id ="arrowUp"
-                                              style={{color:'inherit',fontSize:'0.8rem',display:'none'}} /> اختر
+                                              style={{color:'inherit',fontSize:'0.8rem',display:'none'}} /> 
+                                              {translator('ShippingPage','body','ShippingForm','Choose')}
+
                                         </button>
                                         <div className='collapse'>
                                             <div className="collapseContentContainer">
@@ -141,23 +146,31 @@ return (
                                          className="leftArrow" />
                                     </div>
                                     <div className="container"  >
-                                        <label htmlFor="address">عنوان المرسل</label>
+                                        <label htmlFor="address">
+                                        {translator('ShippingPage','body','ShippingForm','Inputs','senderAddress')}
+                                        </label>
                                         <TextField  
                                         className="addressInput"
                                         sx={{
                                             color:"white"
                                         }}
                                         InputProps={{
-                                            endAdornment:<InputAdornment position="start">الافتراضي</InputAdornment>
+                                            endAdornment:<InputAdornment position="start">
+                                                {translator('ShippingPage','body','ShippingForm','Inputs','default')}
+                                            </InputAdornment>
                                         }}
                                           value={senderAddress}
                                           onChange={(e)=>setSenderAddress(e.currentTarget.value)}
                                          name="address" />
                                     </div>
                                     <div  className='group' >
-                                        <label htmlFor="group">أبعاد الشحنة</label>
+                                        <label htmlFor="group">
+                                        {translator('ShippingPage','body','ShippingForm','Inputs','shipmentDimentions')}
+                                        </label>
                                         <div className='item'>
-                                            <label htmlFor="longitud">الطول</label>
+                                            <label htmlFor="longitud">
+                                            {translator('ShippingPage','body','ShippingForm','Inputs','Lenght')}
+                                            </label>
                                             <TextField 
                                             type={"number"}
                                               InputProps={{
@@ -166,7 +179,9 @@ return (
                                             name="longitud"/>
                                         </div>
                                         <div className='item'>
-                                            <label htmlFor="width">العرض</label>
+                                            <label htmlFor="width">
+                                            {translator('ShippingPage','body','ShippingForm','Inputs','Width')}
+                                            </label>
                                             <TextField 
                                              type={"number"}
                                               InputProps={{
@@ -175,7 +190,9 @@ return (
                                             name="width"/>
                                         </div>
                                         <div className='item'>
-                                            <label htmlFor="height">الارتفاع</label>
+                                            <label htmlFor="height">
+                                            {translator('ShippingPage','body','ShippingForm','Inputs','Height')}
+                                            </label>
                                             <TextField 
                                             type={"number"}
                                               InputProps={{
@@ -184,7 +201,9 @@ return (
                                               name="height"/>
                                         </div>
                                         <div  className='item'>
-                                            <label htmlFor="weight">الوزن</label>
+                                            <label htmlFor="weight">
+                                            {translator('ShippingPage','body','ShippingForm','Inputs','Weight')}
+                                            </label>
                                             <TextField 
                                             type={"number"}
                                                InputProps={{
@@ -194,15 +213,21 @@ return (
                                         </div>
                                     </div>
                                     <div  className="container">
-                                            <label htmlFor="receptant">عنوان المستقبل </label>
+                                            <label htmlFor="receptant">
+                                            {translator('ShippingPage','body','ShippingForm','Inputs','recipientAddress')} 
+                                             </label>
                                             <TextField className="addressInput" 
                                              InputProps={{
-                                                endAdornment:<InputAdornment position="start">الافتراضي</InputAdornment>
+                                                endAdornment:<InputAdornment position="start">
+                                                    {translator('ShippingPage','body','ShippingForm','Inputs','default')}
+                                                </InputAdornment>
                                             }}
                                             name="receptant"/>
                                     </div>
                                     <div className="dateContainer">
-                                        <label htmlFor="date">تاريخ الاستلام</label>
+                                        <label htmlFor="date">
+                                        {translator('ShippingPage','body','ShippingForm','Inputs','recievingDate')}
+                                        </label>
                                         <input type="date" name="date"  />
                                     </div>
                         

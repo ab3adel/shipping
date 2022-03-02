@@ -12,7 +12,7 @@ import Realable from '../../../images/homepage/realability.svg'
 import Web from '../../../images/homepage/web.svg'
 import Email from '../../../images/homepage/email.svg'
 import Phone from '../../../images/homepage/phone.svg'
-
+import {translator} from '../../../tools/translator'
 export const HomeSectionFour =()=>{
 
 
@@ -29,7 +29,7 @@ export const HomeSectionFour =()=>{
                 </div>
                 <div className="rightCol">
                     <div className="title">
-                        يمكنك ايضا تحميل التطبيق الخاص بنا من المتجر
+                        {translator('HomePage','HomePageSection4','section1')}
                         <img src={Download} />
                     </div>
                     <div className="playStore">
@@ -59,20 +59,20 @@ export const HomeSectionFour =()=>{
               <img src={Realable} id ="realable" />
               <img src={Hands} id="hands" />
               <div className="speed">
-                  السرعة
+              {translator('HomePage','HomePageSection4','speed')}
               </div>
               <div className='line1Container'>
                  <div className="line1"></div>
               </div>
              
               <div className="realable">
-                  الثقة
+              {translator('HomePage','HomePageSection4','reliability')}
               </div>
               <div className='line2Container'>
                  <div className="line2"></div>
                </div>  
               <div className="hands">
-                  الاحترافية
+              {translator('HomePage','HomePageSection4','professionality')}
               </div>
             </div>
             <div className="preFooter" >

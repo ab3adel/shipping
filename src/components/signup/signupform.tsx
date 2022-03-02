@@ -6,10 +6,14 @@ import {ImgInput} from '../../tools/formfields/imginput/imginput'
 import {useState} from 'react'
 import {isPassword,isEmail,dummy,isPasswordConfirmed} from '../../tools/validations/validations'
 import {Checkbox} from '@mui/material'
-interface Iprops {index:number,setFormFields:Function,formFields:any}
-export const SignUpForm =({index,setFormFields,formFields}:Iprops) =>{
+import { MyButton } from '../../tools/formfields/button/button'
+import {translator} from '../../tools/translator'
+interface Iprops {index:number,setFormFields:Function,formFields:any,
+                  setOpen:Function}
+export const SignUpForm =({index,setFormFields,formFields,setOpen}:Iprops) =>{
     const [file,setFile] =useState<string|undefined> (undefined)
     const [screenWidth,setScreenWidth]= useState(0)
+
     useEffect(()=>{
 setScreenWidth(window.innerWidth)
     })
@@ -24,10 +28,10 @@ if (index ===1) {
      (<>
      <div className="inputGroup">
         
-         <InputField name="Password" type="password" label=" كلمة المرور" 
+         <InputField name="Password" type="password" label={translator('Inputs','Password')}
             validator={isPassword}
              formFields={formFields} setFormFields={setFormFields}/>
-         <InputField name="PasswordConfirmation" type="password" label=" تأكيد كلمة المرور " 
+         <InputField name="PasswordConfirmation" type="password" label={translator('Inputs','PasswordConfirmation')} 
             validator={isPasswordConfirmed}
              formFields={formFields} setFormFields={setFormFields}/>
            
@@ -37,10 +41,10 @@ if (index ===1) {
      form= (
          <>
             <div className="inputGroup">
-                <InputField name="Name" type="text" label=" اسم المستخدم"
+                <InputField name="Name" type="text" label={translator('Inputs','Name')}
                     validator={dummy}
                     formFields={formFields} setFormFields={setFormFields} />
-                <InputField name="Email" type="email" label="البريد الاكتروني"
+                <InputField name="Email" type="email" label={translator('Inputs','Email')}
                     validator={isEmail}
                     formFields={formFields} setFormFields={setFormFields} />
                     
@@ -54,9 +58,9 @@ else if (index ===2 ) {
      form = 
      (<div className="inputGroup">
         
-         <MySelector name="Bank"  label="اسم البنك" options={['east','west','barakah']} 
+         <MySelector name="Bank"  label={translator('Inputs','BankName')} options={['east','west','barakah']} 
            setFormFields={setFormFields}    formFields={formFields} />
-         <InputField name="Account" type="number" label=" رقم الحساب" 
+         <InputField name="Account" type="number" label={translator('Inputs','AccountNumber')}
              validator={dummy}
              formFields={formFields} setFormFields={setFormFields}/>
          <InputField name="IBANN" type="number" label=" IBANN " 
@@ -69,20 +73,19 @@ else {
      form = 
     (<div className="inputGroup">
         
-        <InputField name="Address" type="text" label="  العنوان" 
+       
+        <InputField name="Spec" type="text" label={translator('Inputs','Specification')} 
            validator={dummy}
            formFields={formFields} setFormFields={setFormFields}/>
-        <InputField name="Spec" type="text" label=" التخصص " 
-           validator={dummy}
-           formFields={formFields} setFormFields={setFormFields}/>
+           <MyButton fun={()=>setOpen(true)}>
+              {translator('Buttons','AddAddress')}
+           </MyButton>
     </div>)
     checkOrForm = (
         <div className="checkBox">
             <Checkbox name="Agreement"  id ="agreement" onChange={(e:ChangeEvent)=>checkBoxHandler(e)}/>
             <label htmlFor='agreement'>
-            لقد قرأت ووافقت على <span>&nbsp;</span>
-                <a>شروط الاستخدام وسياسة الخصوصية  </a>
-                للموقع<span>&nbsp;</span>
+             {translator('SignUpPage','agreement')}
             </label>
        </div>
     )

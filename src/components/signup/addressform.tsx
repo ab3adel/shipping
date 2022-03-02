@@ -1,18 +1,25 @@
-import {InputField} from '../../../tools/formfields/input/inputfield'
-import {MyButton} from '../../../tools/formfields/button/button'
-import {MySelector} from '../../../tools/formfields/selector/selector'
-import {dummy} from  '../../../tools/validations/validations'
-import {Ifield} from '../../../tools/formfields/interfaces'
-import {Checkbox,Divider} from '@mui/material'
+import 
+{
+    Dialog,
+    DialogContent,
+    DialogActions,
+    Checkbox,
+    Divider
+
+}
+from '@mui/material'
 import { ChangeEvent } from 'react'
-import {translator} from '../../../tools/translator'
-interface Iprops {undo :Function,setFormFields:Function,formFields:Ifield
-                  ,countriesName:string[],cities:string[],doAction:Function,
-                countryStatus:string,disableName:boolean}
+import { MyButton } from '../../tools/formfields/button/button'
+import { InputField } from '../../tools/formfields/input/inputfield'
+import { MySelector } from '../../tools/formfields/selector/selector'
+import { translator } from '../../tools/translator'
+import { dummy } from '../../tools/validations/validations'
 
-export const NewAddress =({undo,formFields,setFormFields,disableName
-                    ,countriesName,cities,doAction,countryStatus}:Iprops) =>{
+interface iProps {open:boolean,setOpen:Function,formFields:any
+           ,setFormFields:Function,countriesName:string[],cities:string[]}
 
+export const AddressForm =({open,setOpen,cities,countriesName
+                          ,formFields,setFormFields}:iProps)=>{
     const handleCheckBox =(e:ChangeEvent)=>{
         let input = e.currentTarget as HTMLInputElement
         let value ='0'
@@ -20,12 +27,15 @@ export const NewAddress =({undo,formFields,setFormFields,disableName
         setFormFields(input.name,value,false)
     } 
 
+
     return (
-        <div className="newAddress">
+        <Dialog open={open} onClose={()=>setOpen(false)} className="addressForm">
+            <DialogContent>
+            <div className="newAddress">
             <div className="newAddressInputs">
                 <div className="addressesSpec">
                    <InputField name="Name" label={translator('Inputs','Name')} type='text'
-                           disabled={!disableName} requireText={formFields['NameError'] as string}
+                            requireText={formFields['NameError'] as string}
                             validator={dummy} formFields={formFields} setFormFields={setFormFields}/>
                     <MySelector options={['work','home','others']} name="Type" 
                             requireText={formFields['TypeError'] as string}
@@ -71,15 +81,22 @@ export const NewAddress =({undo,formFields,setFormFields,disableName
                 </div>    
               
             </div>    
-            <div className="newAddressButtons">
-                <MyButton
-                fun={()=>doAction()}>
-                    {translator('Buttons','Save')}
-                    </MyButton>
-                <MyButton
-                   fun={()=>undo()}
-                   >{translator('Buttons','Cancle')}</MyButton>
-            </div>
+           
         </div>
+            </DialogContent>
+            <DialogActions>
+                <div className="newAddressButtons">
+                    <MyButton
+                      fun={()=>{}}>
+                        {translator('Buttons','Save')}
+                    </MyButton>
+                    <MyButton
+                      fun={()=>setOpen(false)}>  
+                      {translator('Buttons','Cancle')}
+                    </MyButton>
+                </div>
+            </DialogActions>
+        </Dialog>
+
     )
 }

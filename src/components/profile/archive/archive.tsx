@@ -13,10 +13,7 @@ import
 from '@mui/material'
 import {useState ,SyntheticEvent} from 'react'
 import {DetailsDialog} from './detailsdialog/detailsdialog'
-
-
-
-
+import {translator} from '../../../tools/translator'
 
 interface Iele {number:number,sentWeight:string
     ,realWeight:string,realPay:string,pay:string,
@@ -64,7 +61,7 @@ export const Archive = () =>{
         <div className="archiveContainer">
             <div className="archiveTitle">
                 <div className="archiveAvatar">
-                    <p>ارشيف الفواتير</p>
+                   {translator('ProfilePage','ArchiveSection','mainTitle')}
                     <Avatar src={archive} />
                     
                 </div>
@@ -72,8 +69,8 @@ export const Archive = () =>{
             <div className="archiveBody">
                 <div className="tabsGroup">
                     <Tabs TabIndicatorProps={{style:{display:'none'}}} value={value} onChange={changeHandler}>
-                            <Tab  label=" المدفوعة" />
-                            <Tab  label=" غير المدفوعة" />
+                            <Tab  label={translator('ProfilePage','ArchiveSection','Tabs','Paid')} />
+                            <Tab  label={translator('ProfilePage','ArchiveSection','Tabs','UnPaid')} />
                         
                     </Tabs>
                     <SortButton  />

@@ -87,6 +87,48 @@
                         display: flex;
                         justify-content: center;
                         flex-direction: column;
+                        .newAddressInputs {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: flex-start;
+                            .MuiDivider-root {
+                                background-color: #05a7e2;
+                                width:70%;
+                                margin:0.5rem
+                            }
+                            .selectionsGroup {
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: space-between;
+                                width:100%;
+                                flex-wrap:wrap;
+                                .selector {
+                                    width:50%
+                                }
+                                .addressesLines {
+                                    display: flex;
+                                    justify-content: flex-start;
+                                    flex-wrap: wrap;
+                                    .rowDirection {
+                                        width:50%;
+                                        label {
+                                            font-size: medium;
+                                        }
+                                    }
+                                }
+                            }
+                            .addressesSpec {
+                                display: flex;
+                                flex-wrap: wrap;
+                                width: 100%;
+                                .selector {
+                                    width: 50%;
+                                }
+                                .rowDirection {
+                                    width:50%
+                                }
+                            }
+                        }
                         .newAddressButtons {
                             display: flex;
                             justify-content: space-around;
@@ -115,6 +157,9 @@
                     display: flex;
                     justify-content: center;
                      width: 100%;
+                     .addNewAddress {
+                         margin-left: 0.5rem;
+                     }
                    
                 }
                 .sentAddressBody {
@@ -182,6 +227,65 @@
                         .newAddress {
                             display: flex;
                             flex-direction: column;
+                            width:50%;
+                            flex-wrap: wrap;
+                            .newAddressInputs {
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                                justify-content: space-between;
+                                width:100%;
+                                .MuiDivider-root {
+                                    background-color: #05a7e2;
+                                    width:100%;
+                                    margin:0.5rem
+                                }
+                                .selectionsGroup {
+                                    display: flex;
+                                    flex-direction: row;
+                                    justify-content: space-between;
+                                    width:100%;
+                                    flex-wrap:wrap;
+                                    .selector {
+                                        width:40%
+                                    }
+                                    .addressesLines {
+                                        display: flex;
+                                        justify-content: space-between;
+                                        flex-wrap: wrap;
+                                        width:100%;
+                                        .MuiDivider-root {
+                                            background-color: #05a7e2;
+                                            width:100%;
+                                            margin:0.5rem;
+                                            justify-self: center;
+                                            
+                                        }
+                                        .rowDirection {
+                                            width:40%;
+                                        
+                                            label {
+                                                font-size: medium;
+                                            }
+                                        }
+                                    }
+                                }
+                                .addressesSpec {
+                                    display: flex;
+                                    flex-wrap: wrap;
+                                    width: 100%;
+                                    justify-content: space-between;
+                                    .selector {
+                                        width: 40%;
+                                    }
+                                    .rowDirection {
+                                        width:40%
+                                    }
+                                    .checkBox {
+                                        width:40%
+                                    }
+                                }
+                            }
                             .newAddressButtons {
                                 justify-content: space-around;
                                 display: flex;
@@ -198,6 +302,40 @@
         
     }
    
+}
+.MuiDialog-container {
+    .MuiPaper-root {
+        .MuiDialogContent-root {
+            color:white;
+            .MuiTabs-root {
+                .MuiTabs-scroller {
+                    .MuiButtonBase-root.MuiTab-root.Mui-selected {
+                        
+                        color:white
+                          
+                    }
+                    
+                }
+            }
+            .tabPanelBody {
+                .addressesInfo {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    .addressInfo {
+                       display: flex; 
+                       justify-content: space-between;
+                       width:50%;
+                       h6.MuiTypography-root {
+                           white-space: nowrap;
+                       }
+                       
+                    }
+                }
+            }
+        }
+    }
 }
 @media only screen  and (max-width:500px){
     .addressContainer {
@@ -251,6 +389,9 @@
                     width: 100%;
                     .sentAddressBody {
                         .addressList {
+                            .newAddress {
+                                width:100%
+                            }
                             .item {
                                 width:100%;
                                 .addressItem {

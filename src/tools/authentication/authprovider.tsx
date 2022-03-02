@@ -36,6 +36,7 @@ useEffect (()=>{
     }
 },[])
 const login = async (formData:{email:string,password:string})=>{
+    console.log('log')
    let form = new FormData()
    form.append('email',formData.email)
    form.append('password',formData.password)

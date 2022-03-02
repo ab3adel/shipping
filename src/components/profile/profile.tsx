@@ -11,7 +11,7 @@ import Address from '../../images/profile/adress.svg'
 import MyProfile from '../../images/profile/profile.svg'
 import Security from '../../images/profile/security.svg'
 import Archive from '../../images/profile/archive.svg'
-
+import {translator} from '../../tools/translator'
 export const Profile =()=>{
 
  
@@ -20,28 +20,28 @@ export const Profile =()=>{
             <div className="listContainer">
                         <div className="list">
                                 <Link to="/profile/personalinfo"  >
-                                    <p>معلومات شخصية</p>
+                                    <p>{translator('ProfilePage','PersonalInfo')} </p>
                                     <Avatar>
                                         <img src={MyProfile}/>
                                     </Avatar>
                                 
                                 </Link>
                                 <Link to="/profile/security">
-                                    <p>الأمان</p>
+                                    <p>{translator('ProfilePage','Security')}</p>
                                     <Avatar>
                                         <img src={Security}/>
                                     </Avatar>
                                 
                                 </Link>
                                 <Link to="/profile/archive">
-                                    <p>ارشيف الفواتير</p>
+                                    <p>{translator('ProfilePage','BillsArchive')} </p>
                                     <Avatar>
                                         <img src={Archive}/>
                                     </Avatar>
                                 
                                 </Link>
                                 <Link to="/profile/addresses">
-                                    <p>عناويني</p>
+                                    <p>{translator('ProfilePage','MyAddresses')}</p>
                                     <Avatar>
                                         <img src={Address}/>
                                     </Avatar>
@@ -50,7 +50,7 @@ export const Profile =()=>{
                         </div>
              
                     <div className="buttonContainer">
-                       <Button >تسجيل الخروج</Button>
+                       <Button >{translator('Buttons','SignOut')} </Button>
                     </div>
             </div>
                )

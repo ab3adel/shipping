@@ -1,7 +1,7 @@
 import {Navbar} from '../../navbar/navbar'
 import './home-section-one.scss'
 import Wave from '../../../images/homepage/wave.svg'
-
+import {translator} from '../../../tools/translator'
 export const HomeSectionOne =()=>{
 
 
@@ -11,8 +11,7 @@ export const HomeSectionOne =()=>{
             <div className="body">
              <div className="textContainer">
                 <div className="text">
-                    <h3>  أهلا بك في مرسال  </h3>
-                    <div>اشحن معنا بكل سهولة وامان</div>
+                    {translator('HomePage','HomePageSection1','body','section1')}
                </div>
              </div>
              <img src={Wave} />

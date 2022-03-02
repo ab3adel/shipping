@@ -3,7 +3,7 @@ import axios from 'axios'
 import {Iauth} from '../../authentication/interfaces'
 
 const instance = axios.create({
-    baseURL:"https://Backend.sourcemediakw.cloud/api"
+    baseURL:"https://backend.wodex.online/api"
 });
 
 

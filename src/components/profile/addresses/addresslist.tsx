@@ -6,16 +6,29 @@ import
      Button
  }
  from '@mui/material'
+ import {translator} from '../../../tools/translator'
+interface Iprops {num:number
+                ,focusHandler:(e:React.MouseEvent,num:number)=>void
+                ,index:number,deleteAddress:Function
+                ,data:any,setOpenDetails:Function
+                ,showDetails:Function,setAdd:Function,updateRecipient:Function,
+            updateAddressForm:Function}
 
-interface Iprops {ele:string,num:number,setNewAddress:Function
-      ,focusHandler:(e:React.MouseEvent,num:number)=>void,index:number}
+export const AddressList =({focusHandler,index,num
+                          ,deleteAddress,data,
+                          setAdd,showDetails,setOpenDetails,updateRecipient
+                        ,updateAddressForm}:Iprops) =>{
 
-export const AddressList =({ele,focusHandler,index,num,setNewAddress}:Iprops) =>{
-
-         const fun =() =>{
-
-             setNewAddress (true)
+        
+         const handleUpdate=(id:number)=>{
+             setAdd(false)
+             showDetails(id)
+             updateAddressForm()
          }
+        const handleShowDetails=(id:number)=>{
+            showDetails(id)
+            setOpenDetails(true)
+        }
        
             return (
              <div className={"item"}
@@ -26,18 +39,18 @@ export const AddressList =({ele,focusHandler,index,num,setNewAddress}:Iprops) =>
 
                      <span>{num}</span>
                      <div className="editAddress">
-                         <TextField value={ele}/>
+                         <TextField value={data.name_ar? data.name_ar:data.name_en}/>
                          <div className="editAddressButtons" style={{display:index ===num ? 'flex':'none'}}>
-                             <MyButton>تعديل</MyButton>
-                             <Button className="deleteBtn" sx={{backgroundColor:'red',color:'white'}}>حذف</Button>
+                             <MyButton fun={()=> handleUpdate (data.id)} >{translator('Buttons','Edit')}</MyButton>
+                             <MyButton fun={()=>handleShowDetails(data.id)}>{translator('Buttons','Details')}</MyButton>
+                             <Button onClick={()=>deleteAddress(data.id)} className="deleteBtn" sx={{backgroundColor:'red',color:'white'}}>
+                             {translator('Buttons','Delete')}
+                             </Button>
                          </div>
                      </div>
                  </div>
-                 <div className="addNewAddress" style={{display:index ===num ? 'flex':'none'}}>
-                     <MyButton fun={()=> fun ()} >
-                         اضافة جديد
-                     </MyButton>
-                 </div>
+                
+                
              </div>    
             )
        

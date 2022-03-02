@@ -4,6 +4,7 @@ import {useState} from 'react'
 import {MyShippingRequestForm} from './form'
 import {Route,Navigate,Routes,useNavigate} from 'react-router-dom'
 import {Button} from '@mui/material'
+import {translator} from '../../../tools/translator'
 export const ShippingRequest =() =>{
 let navigate = useNavigate()
 const [date,setDate]=useState()
@@ -12,7 +13,7 @@ const [date,setDate]=useState()
         <div className="srMainContainer">
         <div className="srUpperPart">
         
-           <p> شحنة جديدة</p>
+          {translator('ShippingPage','mainTitle')}
           
         </div>
         <div className="srLowerPart">
@@ -26,7 +27,7 @@ const [date,setDate]=useState()
         <div className="askOfferBtn" >
             <Button 
               onClick={()=>navigate('/shippingrequest/offers')}
-            >   طلب عرض للشحنة
+            >     {translator('ShippingPage','body','buttonTitle')}
             </Button> 
         </div>
      </div>    

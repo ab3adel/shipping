@@ -13,12 +13,14 @@ import
     ,Drawer
     ,Avatar
     ,Button
+    ,Switch
 }
 from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
 import {SignUpDialog} from '../home/signupdialog/signupdialog'
+import {translator} from '../../tools/translator'
 import { Login } from '@mui/icons-material'
-
+import {MultiSwitch} from '../../tools/formfields/switch/switch'
 export const Navbar =() =>{
     const [anchorElNav, setAnchorElNav] = useState <Element |null>(null);
     const [anchorElUser, setAnchorElUser] = useState <Element |null>(null);
@@ -26,6 +28,7 @@ export const Navbar =() =>{
     const [auth,setAuth] =useState<null|string>(null)
     const [imgUrl,setImgUrl] =useState<string|undefined> (undefined)
     const {user,login,logOut,img} = useContext(Auth)
+    const [checked,setChecked]= useState(false)
     useEffect(()=>{
    
     if (user) {
@@ -35,6 +38,13 @@ export const Navbar =() =>{
         setImgUrl(img)
     }
     },[user,img])
+    useEffect(()=>{
+    let lang =localStorage.getItem('lang')
+    if (lang === 'ar') setChecked(false)
+    else {
+        setChecked(true)
+    }
+    },[])
     const handleOpenNavMenu = (event:React.MouseEvent) => {
         setAnchorElNav(event.currentTarget);
        
@@ -49,7 +59,12 @@ export const Navbar =() =>{
          
           setOpen(true)
       }
-     
+     const handleChange=(str:string)=>{
+
+         setChecked(!checked)
+         localStorage.setItem('lang',`${str}`)
+         window.location.reload()
+     }
     return (
         <>
         <div className="navbar">
@@ -88,13 +103,13 @@ export const Navbar =() =>{
                                            </ListItem>
                                             <ListItem button onClick={handleCloseNavMenu}>
                                                <Link to="/">
-                                                الرئيسية
+                                                 {translator('Navbar','Home')}
                                                 </Link>
                                             </ListItem>
                                             {auth&& (<>
                                                  <ListItem button onClick={handleCloseNavMenu}>
                                                  <Link to="/shippingrequest">
-                                                      اطلب شحنة
+                                                 {translator('Navbar','OrderShipment')}
                                                   </Link>
                                               </ListItem >
                                              
@@ -102,12 +117,12 @@ export const Navbar =() =>{
                                             )}
                                             <ListItem button onClick={handleCloseNavMenu}>
                                                 <Link to="/about">
-                                                    من نحن
+                                                {translator('Navbar','AboutUs')}
                                                 </Link>
                                             </ListItem >
                                             <ListItem button onClick={handleCloseNavMenu}>
                                                 <Link to="/contactus">
-                                                    تواصل معنا
+                                                {translator('Navbar','ContactUs')}
                                                 </Link>
                                             </ListItem >
                                             <ListItem button onClick={handleCloseNavMenu}>
@@ -115,26 +130,31 @@ export const Navbar =() =>{
                                                     FAQs
                                                 </Link>
                                             </ListItem >
+                                            
                                             <ListItem>
                                                     <div className="register">{
                                                         auth?
                                                         
                                                         <Button  onClick={()=>logOut()}>
-                                                        تسجيل الخروج
+                                                         {translator('Buttons','SignOut')} 
                                                     </Button>
                                                 
                                                     :
                                                             <Button  onClick={()=>Login()}>
-                                                                تسجيل الدخول
+                                                                  {translator('Buttons','SignIn')}
                                                             </Button>}
                                                         </div>
                                             </ListItem>
-                                           
+                                            <ListItem button onClick={handleCloseNavMenu} 
+                                              >
+                                              <MultiSwitch leftLabel='ar' rightLabel='en'
+                                                   checked={checked} setChecked={handleChange}/>
+                                            </ListItem >
                                 </List>
                             </Drawer>
                         </Box>
                         <Box sx={{flexGrow:1
-                                 ,display:{xs:'none',md:'flex',sm:'flex'}
+                                 ,display:{xs:'none',md:'flex',sm:'flex',alignItems:'center'}
                                  ,justifyContent:'space-evenly'
                                  ,flexDirection:'row-reverse'}}>
                                      
@@ -150,35 +170,37 @@ export const Navbar =() =>{
                                                     : <Avatar color="inherit"/>}
                                                 </Link>
                                                 <Button  onClick={()=>logOut()}>
-                                                   تسجيل الخروج
+                                                {translator('Buttons','SignOut')} 
                                                </Button>
                                               
                                                </>:
                                                     <Button  onClick={()=>Login()}>
-                                                        تسجيل الدخول
+                                                      {translator('Buttons','SignIn')} 
                                                     </Button>}
                                             </div>
                                           
                                             <Link to="/">
-                                                الرئيسية
+                                            {translator('Navbar','Home')}
                                             </Link>
                                             {auth&& (
                                           
                                                 <Link to="/shippingrequest">
-                                                      اطلب شحنة
+                                                      {translator('Navbar','OrderShipment')}
                                                 </Link>
                                                
                                             
                                             )}
                                              <Link to="/about">
-                                                    من نحن
+                                             {translator('Navbar','AboutUs')}
                                             </Link>
                                             <Link to="/contactus">
-                                                    تواصل معنا
+                                            {translator('Navbar','ContactUs')}
                                             </Link>
                                             <Link to="/faqs">
                                                     FAQs
                                             </Link>
+                                            <MultiSwitch leftLabel='ar' rightLabel='en'
+                                                   checked={checked} setChecked={handleChange}/>
                         </Box>
                     </Toolbar>
 

@@ -268,13 +268,20 @@
             height: 50%;
             margin-top: 2rem;
             .speed {
-                font-size: small;
+                font-size: 0.5em;
+                display: flex;
+                padding:1px
             }
             .realable {
-                font-size: small;
+                font-size: 0.5em;
+                display: flex;
+                padding:1px
             }
             .hands {
-                font-size: small;
+                font-size: 0.5em;
+                display: flex;
+                padding:1px;
+                overflow: hidden;
             }
         }
         .preFooter {

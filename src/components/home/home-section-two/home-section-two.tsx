@@ -8,13 +8,14 @@ import Shipping2 from '../../../images/homepage/shipping2.png'
 import Shipping3 from '../../../images/homepage/shipping3.png'
 import { useEffect, useState,useCallback, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
+import {translator,arr3} from '../../../tools/translator'
 export const HomeSectionTwo =() =>{
 let [jNumber,setJNumber]= useState(0)
 let imgRef= useRef<HTMLImageElement|null>(null)
 let num = useRef(0)
 let arr:string[]=[Boxes,Packing,Sending]
 let arr1:string[]=[Shipping1,Shipping2,Shipping3]
-let arr3:string [] =["من موقع الشحن الى باب منزلك","مغلفة جيدا و بشكل أمن","ملتزمون بالاجراءات الصحية"]
+
 let navigate =useNavigate()
 const animateRightCol = (j:number) => {
 
@@ -65,7 +66,8 @@ useEffect(()=>{
     return (
             <div className="homeTwoContainer">
                 <div className="title">
-                    ابدأ الان بارسال السحنات بخطوات بسيطة
+                  {translator('HomePage','HomePageSection2','mainTitle')}
+                    
                 </div>
                 <div className="body">
                     <div className="leftCol">
@@ -82,7 +84,7 @@ useEffect(()=>{
                             </div>
                     </div>
                     <div className="rightCol">
-                        <button onClick={()=>navigate('/shippingrequest')}>أبدأ الشحن</button>
+                        <button onClick={()=>navigate('/shippingrequest')}> {translator('HomePage','HomePageSection2','buttonTitle')} </button>
                      
                         <div className="imgs">
                           <h5 id="text"></h5>

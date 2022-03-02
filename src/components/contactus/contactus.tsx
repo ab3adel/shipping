@@ -39,7 +39,7 @@ export default  function ContactUs (){
         data:form
     })
         .then (res=>{
-            console.log(res.status)
+          
             if (res.status === 201) {
                 setNot(pre=>({...pre,isNotified:true,message:'تم الارسال رسالة بنجاح',severity:'success'}))
             }
@@ -50,7 +50,7 @@ export default  function ContactUs (){
     return (
         <div className="contactusContainer">
             <div className="contactusHeader">
-                <h2>تواصل معنا</h2>
+            <h2>تواصل معنا</h2>
             </div>
             <div className="contactusBody">
                 <div className="contactusFormContainer">

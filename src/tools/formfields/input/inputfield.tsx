@@ -23,17 +23,23 @@ import './inputfield.scss'
 import { toNamespacedPath } from 'path/posix'
 
 interface Iprops {name:string,type:'text'|'number'|'date'|'email'|'password'
-,label:string,validator:Function ,formFields?:any,setFormFields ?:Function,showLabel?:boolean}
+                  ,label:string,validator:Function ,formFields?:any,
+                  setFormFields ?:Function,showLabel?:boolean,disabled?:boolean,
+                  requireText?:string}
 
-export const InputField =({name,type,label,validator,setFormFields,formFields,showLabel=true}:Iprops)=>{
+export const InputField =({name,type,label,validator
+                      ,setFormFields,formFields,showLabel=false
+                      ,disabled=false,requireText=""}:Iprops)=>{
   const [screenWidth,setScreenWidth]=useState(0)
   const [showPassword,setShowPassword]=useState(false)
 
- const[error,setError] =useState('')
+ const[error,setError] =useState(requireText)
 useEffect (()=>{
   setScreenWidth(window.innerWidth)
 },[])
-   
+   useEffect(()=>{
+      setError(requireText)
+   },[requireText])
 const changeHandler=(e:ChangeEvent)=>{
   let input =e.currentTarget as HTMLInputElement
   let err =""
@@ -58,8 +64,9 @@ err = validator(input.value)
              onChange={(e:ChangeEvent)=>changeHandler(e)}
              value={formFields[name]}
               id={`personalInfo${name}`} 
-              label={showLabel? screenWidth>500 || type==="date"  ?"":label:label}
+              label={showLabel?  type==="date"  ?"":label:label}
               type={type}
+              disabled={disabled}
               error={Boolean(error)}
               helperText={Boolean(error) ?error:""}
               name={name} />
@@ -70,10 +77,11 @@ err = validator(input.value)
        : 
        <div className="rowDirection">
               <FormControl>
-              {screenWidth<501 ? <InputLabel id={`personalInfo${name}`}>{label}</InputLabel>:""}
+              <InputLabel id={`personalInfo${name}`}>{label}</InputLabel>
                 <OutlinedInput name={name}
                     type={showPassword ? 'text':'password'}
                     id ={`inputField${name}`} 
+                    disabled={disabled}
                     className="passwordInput"
                     error={Boolean(error)}
                     onChange={(e:ChangeEvent)=>changeHandler(e)}
@@ -91,13 +99,13 @@ err = validator(input.value)
                         }
                     />
                    {Boolean(error) &&
-                  ( <FormHelperText sx={{color:'white',textShadow:"3px red"}}  id ={`inputField${name}`} >
+                  ( <FormHelperText sx={{color:'red',textShadow:"3px red"}}  id ={`inputField${name}`} >
                      {error}
                     </FormHelperText>)}
               </FormControl>      
-              <label className="outerLabel" htmlFor={`personalInfo${name}`}>
+              {/*<label className="outerLabel" htmlFor={`personalInfo${name}`}>
                 {label}
-              </label>
+                   </label>*/}
       </div>}
    </>
     )
