@@ -34,7 +34,7 @@ if (checked) str=leftLabel
 }
 
     return (
-        <Stack >
+        <Stack direction={window.innerWidth>500 ? 'row':'column'}>
             <Typography style={{color:checked?'black':'white'}}>{leftLabel}</Typography>
             <WhiteSwitch  
           
