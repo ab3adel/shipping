@@ -15,7 +15,7 @@ export const Footer =()=>{
             <Instagram fontSize="medium" />
 
         </div>
-        <p>Copyright <Copyright fontSize="small" />  2021 Engitech by IkoniksThemes. All Rights Reserved.</p>
+        <p>Copyright <Copyright fontSize="small" />  2021 Engitech by Woodex. All Rights Reserved.</p>
     </div>
     )
 }
