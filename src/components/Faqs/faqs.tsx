@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react'
 import axios from '../../tools/api/axios/axios'
 import {Apis} from '../../tools/api/apis'
 import {Notify} from '../../tools/notification/notification'
+import { translator } from '../../tools/translator'
 
 
 type Tdata ={title:string,content:string}
@@ -92,7 +93,7 @@ if (isLoading==='idle') {
     return (
         <div className="faqsContainer">
            <div className="faqsHeader">
-               <h3> الأسئلة الشائعة</h3>
+            {translator('FaqsPage','mainTitle')}
                <div className="imgsGroup">
                    <img src={Q2} className="q2" />
                    <img src={Q1} className="q1" />
